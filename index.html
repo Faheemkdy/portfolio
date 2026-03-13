@@ -7,6 +7,12 @@
   <meta name="description" content="Portfolio of Mohamed Faheem — PHP Developer, Flutter & Laravel Developer, and System Technician from Kerala, India." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,600;0,800;0,900;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- AOS — Animate On Scroll -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>
+    /* Custom AOS easing — smooth cubic-bezier for pro feel */
+    [data-aos] { --aos-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  </style>
 </head>
 <body>
 
@@ -36,13 +42,14 @@
   <!-- ══════════════ HERO ══════════════ -->
   <section id="home" class="s-hero">
     <div class="hero-inner">
-      <span class="hero-badge">● Available for Work</span>
+      <span class="hero-badge" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0" data-aos-easing="ease-out-cubic">● Available for Work</span>
+      <!-- Priority 2: Name text — sequential fade-up -->
       <div class="hero-name">
-        <span class="hn">Mohamed</span>
-        <span class="hn gradient-text">Faheem</span>
+        <span class="hn" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-aos-easing="ease-out-cubic">Mohamed</span>
+        <span class="hn gradient-text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="220" data-aos-easing="ease-out-cubic">Faheem</span>
       </div>
-      <p class="hero-role">PHP Developer &nbsp;·&nbsp; System Technician &nbsp;·&nbsp; Backend Engineer</p>
-      <div class="hero-btns">
+      <p class="hero-role" data-aos="fade-up" data-aos-duration="800" data-aos-delay="350" data-aos-easing="ease-out-cubic">PHP Developer &nbsp;·&nbsp; System Technician &nbsp;·&nbsp; Backend Engineer</p>
+      <div class="hero-btns" data-aos="fade-up" data-aos-duration="800" data-aos-delay="480" data-aos-easing="ease-out-cubic">
         <a href="#projects" class="cta-fill">See My Work ↓</a>
         <a href="mailto:mohammedfaheemkdy@gmail.com" class="cta-ghost">Contact Me</a>
         <div class="cv-dropdown">
@@ -65,7 +72,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-info">
+      <div class="hero-info" data-aos="fade-up" data-aos-duration="700" data-aos-delay="600" data-aos-easing="ease-out-cubic">
         <span>📍 Kondotty, Malappuram</span>
         <span>+91 95394 01067</span>
       </div>
@@ -80,22 +87,24 @@
   <section id="about" class="s-about">
     <span class="sec-num">01</span>
     <div class="about-grid">
-      <div class="about-text reveal">
-        <h2>Crafting<br/><em class="gradient-text">Digital Solutions</em></h2>
-        <p class="about-p">
+      <!-- Priority 2: Text content -->
+      <div class="about-text">
+        <h2 data-aos="fade-up" data-aos-duration="800" data-aos-delay="150" data-aos-easing="ease-out-cubic">Crafting<br/><em class="gradient-text">Digital Solutions</em></h2>
+        <p class="about-p" data-aos="fade-up" data-aos-duration="800" data-aos-delay="280" data-aos-easing="ease-out-cubic">
           I'm a <strong>PHP Developer</strong> currently training at Duplex Solutions Co and a seasoned
           <strong>System Technician</strong> with 4+ years in hardware, networking, and IT support.
           My dual expertise bridges the gap between software and hardware — I understand
           both the stack and the infrastructure it runs on.
         </p>
-        <div class="about-stats">
+        <div class="about-stats" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-easing="ease-out-cubic">
           <div class="astat"><div class="astat-n">8<span>mo</span></div><div class="astat-l">PHP Dev</div></div>
           <div class="astat"><div class="astat-n">4+<span>yr</span></div><div class="astat-l">IT Support</div></div>
           <div class="astat"><div class="astat-n">3</div><div class="astat-l">Languages</div></div>
           <div class="astat"><div class="astat-n">2</div><div class="astat-l">Projects</div></div>
         </div>
       </div>
-      <div class="about-img reveal">
+      <!-- Priority 1: Profile image animates first (0 delay) -->
+      <div class="about-img" data-aos="fade-up" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
         <img src="/assets/php-dev.png" alt="Mohamed Faheem PHP Developer workspace" />
         <div class="img-fade"></div>
         <span class="img-label">PHP Developer</span>
@@ -106,29 +115,31 @@
   <!-- ══════════════ EXPERIENCE ══════════════ -->
   <section id="experience" class="s-exp">
     <span class="sec-num">02</span>
-    <h2 class="sec-h2 reveal">Professional <em class="gradient-text">Journey</em></h2>
+    <h2 class="sec-h2" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Professional <em class="gradient-text">Journey</em></h2>
     <div class="exp-grid">
-      <div class="exp-img-wrap reveal">
+      <!-- Priority 1: Image animates first -->
+      <div class="exp-img-wrap" data-aos="fade-up" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
         <img src="/assets/tech.png" alt="System Technician" />
         <div class="img-fade-r"></div>
       </div>
-      <div class="exp-cards reveal">
-        <div class="xcard active-x">
+      <!-- Priority 2: Experience cards (Duplex Solutions first) -->
+      <div class="exp-cards">
+        <div class="xcard active-x" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150" data-aos-easing="ease-out-cubic">
           <div class="xc-badge">Current</div>
           <div class="xc-date">June 2025 – Present &nbsp;·&nbsp; 8 months</div>
           <div class="xc-title">PHP Developer — Trainee</div>
           <div class="xc-co">Duplex Solutions Co</div>
-          <p class="xc-desc">Developing and maintaining web applications using PHP, MySQL, HTML, CSS & JavaScript. Writing clean backend logic, debugging production issues, and collaborating with the team to ship new features.</p>
+          <p class="xc-desc">Developing and maintaining web applications using PHP, MySQL, HTML, CSS &amp; JavaScript. Writing clean backend logic, debugging production issues, and collaborating with the team to ship new features.</p>
           <div class="xc-tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>HTML/CSS</span></div>
         </div>
-        <div class="xcard">
+        <div class="xcard" data-aos="fade-up" data-aos-duration="800" data-aos-delay="280" data-aos-easing="ease-out-cubic">
           <div class="xc-date">2021 – 2025</div>
           <div class="xc-title">System Technician</div>
           <div class="xc-co">Nano Computers</div>
           <p class="xc-desc">Provided hardware repairs, software troubleshooting, and network setup. Reduced system downtime through preventive maintenance routines.</p>
           <div class="xc-tags"><span>Hardware</span><span>Networking</span><span>Maintenance</span></div>
         </div>
-        <div class="xcard">
+        <div class="xcard" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-easing="ease-out-cubic">
           <div class="xc-date">2021 – Present</div>
           <div class="xc-title">System Technician</div>
           <div class="xc-co">PCFIX</div>
@@ -142,14 +153,15 @@
   <!-- ══════════════ EDUCATION ══════════════ -->
   <section id="education" class="s-edu">
     <span class="sec-num">03</span>
-    <h2 class="sec-h2 reveal">Academic <em class="gradient-text">Background</em></h2>
+    <h2 class="sec-h2" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Academic <em class="gradient-text">Background</em></h2>
     <div class="exp-grid">
-      <div class="exp-img-wrap reveal">
+      <!-- Priority 1: Image first -->
+      <div class="exp-img-wrap" data-aos="fade-up" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
         <img src="/assets/education.png" alt="Education background" />
         <div class="img-fade-r"></div>
       </div>
-      <div class="exp-cards reveal">
-        <div class="xcard active-x">
+      <div class="exp-cards">
+        <div class="xcard active-x" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150" data-aos-easing="ease-out-cubic">
           <div class="xc-badge">Degree</div>
           <div class="xc-date">2022 – 2025</div>
           <div class="xc-title">Bsc. Computer Science</div>
@@ -157,7 +169,7 @@
           <p class="xc-desc">Studied core computer science concepts including programming, databases, algorithms, networking, and web technologies. Built a strong theoretical foundation to complement hands-on development experience.</p>
           <div class="xc-tags"><span>Computer Science</span><span>Programming</span><span>Databases</span><span>Networking</span></div>
         </div>
-        <div class="xcard">
+        <div class="xcard" data-aos="fade-up" data-aos-duration="800" data-aos-delay="280" data-aos-easing="ease-out-cubic">
           <div class="xc-date">2020 – 2022</div>
           <div class="xc-title">Plus Two — Science</div>
           <div class="xc-co">GVHSS Kondotty</div>
@@ -171,31 +183,33 @@
   <!-- ══════════════ SKILLS ══════════════ -->
   <section id="skills" class="s-skills">
     <span class="sec-num">04</span>
-    <h2 class="sec-h2 centered reveal">Technical <em class="gradient-text">Arsenal</em></h2>
-    <p class="sec-sub centered reveal">Tools and technologies I work with.</p>
+    <!-- Priority 2: Skills text header -->
+    <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Technical <em class="gradient-text">Arsenal</em></h2>
+    <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">Tools and technologies I work with.</p>
+    <!-- Priority 2: Skill cards — staggered sequentially -->
     <div class="skill-cards stagger">
-      <div class="sk-card sk-purple">
+      <div class="sk-card sk-purple" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">⟨/⟩</div>
         <h3>Backend</h3>
         <ul>
           <li>PHP</li><li>Laravel</li><li>MySQL</li><li>REST APIs</li>
         </ul>
       </div>
-      <div class="sk-card sk-cyan">
+      <div class="sk-card sk-cyan" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">◈</div>
-        <h3>Frontend & Mobile</h3>
+        <h3>Frontend &amp; Mobile</h3>
         <ul>
           <li>HTML5 / CSS3</li><li>JavaScript</li><li>React</li><li>Flutter</li>
         </ul>
       </div>
-      <div class="sk-card sk-blue">
+      <div class="sk-card sk-blue" data-aos="fade-up" data-aos-duration="800" data-aos-delay="240" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">⚙</div>
-        <h3>IT & Hardware</h3>
+        <h3>IT &amp; Hardware</h3>
         <ul>
-          <li>Hardware Repair</li><li>Network Setup</li><li>Network & Server Administration</li><li>Troubleshooting</li>
+          <li>Hardware Repair</li><li>Network Setup</li><li>Network &amp; Server Administration</li><li>Troubleshooting</li>
         </ul>
       </div>
-      <div class="sk-card sk-green">
+      <div class="sk-card sk-green" data-aos="fade-up" data-aos-duration="800" data-aos-delay="360" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">✦</div>
         <h3>Other</h3>
         <ul>
@@ -208,11 +222,11 @@
   <!-- ══════════════ PROJECTS ══════════════ -->
   <section id="projects" class="s-projects">
     <span class="sec-num">05</span>
-    <h2 class="sec-h2 centered reveal">Featured <em class="gradient-text">Projects</em></h2>
+    <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Featured <em class="gradient-text">Projects</em></h2>
 
     <!-- Project 1 — Lapfix AI -->
-    <div class="proj-block reveal">
-      <div class="proj-info">
+    <div class="proj-block">
+      <div class="proj-info" data-aos="fade-right" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
         <div class="proj-num">01</div>
         <h3>LapFix AI</h3>
         <p class="proj-type">AI-Powered Mobile App &nbsp;·&nbsp; Laravel &nbsp;·&nbsp; Flutter</p>
@@ -223,11 +237,11 @@
         </p>
         <ul class="proj-features">
           <li>AI Smart Diagnosis — scan laptop for hardware/software issues</li>
-          <li>Book a Repair with calendar & time slot selection</li>
-          <li>Find & explore verified repair shops nearby</li>
+          <li>Book a Repair with calendar &amp; time slot selection</li>
+          <li>Find &amp; explore verified repair shops nearby</li>
           <li>User authentication with multi-region support</li>
           <li>Flutter mobile frontend with clean blue UI</li>
-          <li>Laravel backend with REST API & MySQL</li>
+          <li>Laravel backend with REST API &amp; MySQL</li>
         </ul>
         <div class="proj-stack">
           <span>Flutter</span><span>Laravel</span><span>MySQL</span><span>REST API</span><span>AI/NLP</span>
@@ -236,7 +250,7 @@
       </div>
 
       <!-- LapFix Screenshot Carousel -->
-      <div class="proj-screens">
+      <div class="proj-screens" data-aos="fade-left" data-aos-duration="900" data-aos-delay="180" data-aos-easing="ease-out-cubic">
         <div class="screen-carousel">
           <div class="sc-tabs">
             <button class="sc-tab active" data-idx="0">Home</button>
@@ -256,8 +270,8 @@
     </div>
 
     <!-- Project 2 — MD Logistics -->
-    <div class="proj-block reverse reveal">
-      <div class="proj-info">
+    <div class="proj-block reverse">
+      <div class="proj-info" data-aos="fade-left" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
         <div class="proj-num">02</div>
         <h3>MD Logistics Billing System</h3>
         <p class="proj-type">Web ERP / Business Management System &nbsp;·&nbsp; React &nbsp;·&nbsp; jsPDF</p>
@@ -265,11 +279,11 @@
           Designed and developed a web-based billing and invoice management system as a personal project using React, HTML, CSS, and JavaScript. The system allows users to generate delivery and product invoices with dynamic input rows, automatic total calculation, and downloadable PDF bills.
         </p>
         <ul class="proj-features">
-          <li>Responsive & mobile-friendly interface</li>
+          <li>Responsive &amp; mobile-friendly interface</li>
           <li>Real-time billing calculation with auto-totals</li>
           <li>PDF invoice generation using jsPDF</li>
           <li>Separate modules for Delivery and Product billing</li>
-          <li>Day Sheet for income & expense tracking</li>
+          <li>Day Sheet for income &amp; expense tracking</li>
           <li>Clean ERP dashboard with multi-module navigation</li>
         </ul>
         <div class="proj-stack">
@@ -279,7 +293,7 @@
       </div>
 
       <!-- MD Logistics Screenshot Carousel -->
-      <div class="proj-screens">
+      <div class="proj-screens" data-aos="fade-right" data-aos-duration="900" data-aos-delay="180" data-aos-easing="ease-out-cubic">
         <div class="screen-carousel">
           <div class="sc-tabs">
             <button class="sc-tab active" data-idx="0" data-group="md">Dashboard</button>
@@ -300,7 +314,7 @@
   <!-- ══════════════ CONTACT ══════════════ -->
   <section id="contact" class="s-contact">
     <span class="sec-num">06</span>
-    <div class="contact-inner reveal">
+    <div class="contact-inner" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
       <h2>Let's Build<br/><em class="gradient-text">Something Great.</em></h2>
       <p class="contact-sub">Open to full-time backend roles and freelance opportunities.</p>
       <div class="contact-links">
@@ -334,6 +348,16 @@
 
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 80,
+    mirror: false
+  });
+</script>
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

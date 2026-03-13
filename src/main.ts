@@ -24,20 +24,10 @@ class App {
     this.initNav();
     this.initScreenCarousel();
     this.initCVDropdown();
-    // Force all .reveal elements to be visible in case CSS animation-timeline isn't supported
-    this.ensureVisible();
-  }
-
-  private ensureVisible() {
-    // Immediately show all content after loader (safety net for all browsers)
-    document.querySelectorAll('.reveal').forEach(el => {
-      (el as HTMLElement).style.opacity = '1';
-      (el as HTMLElement).style.transform = 'none';
-    });
-    document.querySelectorAll('.sk-card').forEach(el => {
-      (el as HTMLElement).style.opacity = '1';
-      (el as HTMLElement).style.transform = 'none';
-    });
+    // Refresh AOS after boot so it recalculates element positions
+    if (typeof (window as any).AOS !== 'undefined') {
+      (window as any).AOS.refresh();
+    }
   }
 
   private initScroller() {
