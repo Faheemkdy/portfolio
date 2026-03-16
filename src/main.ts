@@ -15,7 +15,7 @@ class App {
     setTimeout(() => {
       loader.classList.add('out');
       this.boot();
-    }, 2000);
+    }, 800);
   }
 
   private boot() {
@@ -23,7 +23,7 @@ class App {
     this.initScene();
     this.initNav();
     this.initScreenCarousel();
-    this.initCVDropdown();
+    this.initHamburger();
     // Refresh AOS after boot so it recalculates element positions
     if (typeof (window as any).AOS !== 'undefined') {
       (window as any).AOS.refresh();
@@ -56,6 +56,7 @@ class App {
     const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
 
     // smooth nav click
+    // smooth nav click for desktop links
     links.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -63,6 +64,22 @@ class App {
         if (href) {
           const target = document.querySelector(href) as HTMLElement;
           if (target) this.scroller.scrollTo(target, { offset: -80 });
+        }
+      });
+    });
+
+    // smooth nav click for mobile overlay links
+    const mobileLinks = document.querySelectorAll('.mobile-nav-overlay a[href^="#"]');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href) {
+          const target = document.querySelector(href) as HTMLElement;
+          if (target) {
+            this.closeMobileMenu();
+            setTimeout(() => this.scroller.scrollTo(target, { offset: -80 }), 300);
+          }
         }
       });
     });
@@ -101,18 +118,23 @@ class App {
     });
   }
 
-  private initCVDropdown() {
-    const btn = document.getElementById('cv-toggle');
-    const menu = document.getElementById('cv-menu');
-    if (!btn || !menu) return;
+  private closeMobileMenu() {
+    const overlay = document.getElementById('mobile-nav-overlay');
+    const hamburger = document.getElementById('hamburger');
+    overlay?.classList.remove('open');
+    hamburger?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menu.classList.toggle('open');
-    });
+  private initHamburger() {
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('mobile-nav-overlay');
+    if (!hamburger || !overlay) return;
 
-    document.addEventListener('click', () => {
-      menu.classList.remove('open');
+    hamburger.addEventListener('click', () => {
+      const isOpen = overlay.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
   }
 }

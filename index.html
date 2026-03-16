@@ -26,7 +26,7 @@
 
 <nav id="main-nav">
   <a href="#home" class="logo">F<span>.</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
@@ -34,8 +34,24 @@
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="nav-cta">LinkedIn ↗</a>
+  <div class="nav-right">
+    <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="nav-cta">LinkedIn ↗</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+  <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="mob-linkedin">LinkedIn ↗</a>
+</div>
 
 <main id="app">
 
@@ -52,25 +68,7 @@
       <div class="hero-btns" data-aos="fade-up" data-aos-duration="800" data-aos-delay="480" data-aos-easing="ease-out-cubic">
         <a href="#projects" class="cta-fill">See My Work ↓</a>
         <a href="mailto:mohammedfaheemkdy@gmail.com" class="cta-ghost">Contact Me</a>
-        <div class="cv-dropdown">
-          <button class="cta-ghost cv-btn" id="cv-toggle">Download CV ↓</button>
-          <div class="cv-menu" id="cv-menu">
-            <a href="/assets/Mohamed_Faheem_Updated_CV.pdf" download class="cv-item">
-              <span class="cv-icon">📄</span>
-              <div>
-                <div class="cv-title">ATS Resume</div>
-                <div class="cv-sub">Mohamed_Faheem_Updated_CV</div>
-              </div>
-            </a>
-            <a href="/assets/Mohamed_Faheem.pdf" download class="cv-item">
-              <span class="cv-icon">📋</span>
-              <div>
-                <div class="cv-title">Normal Resume</div>
-                <div class="cv-sub">Mohamed_Faheem</div>
-              </div>
-            </a>
-          </div>
-        </div>
+        <a href="/assets/Mohamed_Faheem_Updated_CV.pdf" download class="cta-ghost">Download CV ↓</a>
       </div>
       <div class="hero-info" data-aos="fade-up" data-aos-duration="700" data-aos-delay="600" data-aos-easing="ease-out-cubic">
         <span>📍 Kondotty, Malappuram</span>
@@ -331,12 +329,8 @@
           <span class="cl-v">+91 95394 01067</span>
         </a>
         <a href="/assets/Mohamed_Faheem_Updated_CV.pdf" download class="cl">
-          <span class="cl-l">ATS CV</span>
+          <span class="cl-l">CV</span>
           <span class="cl-v">Download Mohamed_Faheem_Updated_CV.pdf ↓</span>
-        </a>
-        <a href="/assets/Mohamed_Faheem.pdf" download class="cl">
-          <span class="cl-l">Normal CV</span>
-          <span class="cl-v">Download Mohamed_Faheem.pdf ↓</span>
         </a>
       </div>
     </div>
