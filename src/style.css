@@ -695,26 +695,31 @@ footer {
 ══════════════════════════════════════ */
 .s-certs { background: var(--bg); padding-top: 10rem; }
 
-/* Cert Preview Wrap — similar to proj-screens but taller for PDF */
+/* Cert Preview Wrap — similar to proj-screens but taller for PDF/Badge */
 .cert-preview-wrap {
-  background: rgba(255,255,255,.02);
+  background: rgba(255,255,255,.01);
   border: 1px solid var(--border);
   height: 480px !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-radius: 22px;
 }
 
-.cert-embed {
+.cert-badge-img {
   width: 100%;
   height: 100%;
-  border: none;
-  background: #fff;
-  opacity: 1 !important; /* Always visible in the wrap */
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.cert-preview-wrap:hover .cert-badge-img {
+  transform: scale(1.05);
 }
 
 .cert-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -771,7 +776,7 @@ footer {
   .cl { flex-direction: column; align-items: flex-start; gap: .3rem; }
   .cl .cl-v { font-size: .82rem; word-break: break-all; }
 
-  .cert-card { width: 100%; max-width: 420px; }
+  .cert-preview-wrap { height: 320px !important; }
 }
 
 @media (max-width: 640px) {
@@ -806,7 +811,7 @@ footer {
 
   .contact-inner h2 { font-size: clamp(1.8rem, 9vw, 2.8rem); }
 
-  .cert-card { height: 400px; }
+  .cert-preview-wrap { height: 260px !important; }
 }
 
 @media (max-width: 380px) {
