@@ -479,11 +479,132 @@ section {
 .xc-co { font-size: .85rem; color: var(--dim); font-style: italic; margin-bottom: .7rem; }
 .xc-desc { font-size: .9rem; line-height: 1.65; color: var(--dim); margin-bottom: .9rem; }
 .xc-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-.xc-tags span {
-  font-size: .68rem; background: rgba(255,255,255,.06);
-  border: 1px solid var(--border); padding: .2rem .7rem;
-  border-radius: 100px; color: var(--dim);
+.xc-tags span i { margin-right: 4px; font-size: 1.1em; vertical-align: middle; }
+
+/* ══════════════════════════════════════
+   PROJECTS — Card Based
+══════════════════════════════════════ */
+.proj-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1240px;
+  margin-top: 4rem;
 }
+
+.proj-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.5s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-card:hover {
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Image Container with Zoom */
+.pc-image {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.pc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.proj-card:hover .pc-image img {
+  transform: scale(1.15);
+}
+
+.pc-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.proj-card:hover .pc-overlay {
+  opacity: 1;
+}
+
+/* Content Area */
+.pc-content {
+  padding: 2.2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.pc-num {
+  font-family: var(--fh);
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 1;
+}
+
+.pc-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+  background: rgba(91, 255, 192, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+.pc-content h3 {
+  font-family: var(--fh);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.pc-content p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--dim);
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+
+/* Tech Icons Styling */
+.proj-stack i {
+  font-size: 1.1rem;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.sk-card li i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
 
 /* ══════════════════════════════════════
    SKILLS
@@ -763,8 +884,8 @@ footer {
   }
   .exp-img-wrap { position: relative; top: unset; height: 280px; }
   .about-img { height: 340px; }
-  .skill-cards { grid-template-columns: 1fr 1fr; }
-  .proj-img-wrap, .proj-screens { height: 260px; }
+  .proj-card-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .proj-img-wrap, .proj-screens, .pc-image { height: 260px; }
   .sc-images { height: 210px; }
 
   .about-stats { gap: 1.2rem; flex-wrap: wrap; }
