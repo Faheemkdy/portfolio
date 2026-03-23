@@ -25,6 +25,7 @@ class App {
     this.initHamburger();
     this.initPagination();
     this.initTyped();
+    this.initCarousels();
     this.initTilt();
     if (typeof (window as any).AOS !== 'undefined') {
       (window as any).AOS.refresh();
@@ -43,50 +44,41 @@ class App {
       });
     }
 
-    const typedCert = document.getElementById('typed-cert');
-    if (typedCert && (window as any).Typed) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            new (window as any).Typed('#typed-cert', {
-              strings: ['Successfully completed foundational training in ethical hacking principles and security concepts. This certification demonstrates my commitment to understanding web security and building robust, protected backend solutions.'],
-              typeSpeed: 35,
-              showCursor: true,
-              cursorChar: '_',
-              preStringTyped: () => {
-                this.startTypewriterSound(typedCert);
-              },
-              onComplete: (self: any) => {
-                self.cursor.style.display = 'none';
-                this.stopTypewriterSound();
-              }
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      observer.observe(typedCert);
-    }
+    // Removed typedCert as it was replaced by the static certificate split layout
+  }
+
+  private initCarousels() {
+    const containers = document.querySelectorAll('.carousel-container');
+    containers.forEach(container => {
+      const images = container.querySelectorAll('.pc-carousel img');
+      const prevBtn = container.querySelector('.carousel-btn.prev');
+      const nextBtn = container.querySelector('.carousel-btn.next');
+      
+      if (!images.length || !prevBtn || !nextBtn) return;
+      
+      let currentIndex = 0;
+      
+      const showImage = (index: number) => {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+        this.playTick(); // subtle click sound
+      };
+      
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent triggering image pop
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      });
+      
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      });
+    });
   }
 
   private typewriterAudioCtx: AudioContext | null = null;
-  private typewriterObserver: MutationObserver | null = null;
-
-  private startTypewriterSound(el: HTMLElement) {
-    if (!this.typewriterAudioCtx) {
-      this.typewriterAudioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    }
-    
-    this.typewriterObserver = new MutationObserver(() => {
-      this.playTick();
-    });
-    
-    this.typewriterObserver.observe(el, { childList: true, characterData: true, subtree: true });
-  }
-
-  private stopTypewriterSound() {
-    this.typewriterObserver?.disconnect();
-  }
 
   private playTick() {
     if (!this.typewriterAudioCtx) return;

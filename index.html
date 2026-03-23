@@ -238,54 +238,7 @@
     </div>
   </section>
 
-  <!-- ══════════════ CYBER CERTIFICATION ══════════════ -->
-  <section id="certifications" class="s-certs">
-    <div class="cyber-container">
-      <span class="sec-num">05</span>
-      <h2 class="sec-h2" data-aos="fade-up" data-aos-duration="700">Security <em class="gradient-text">&amp; Ethics</em></h2>
-      
-      <div class="cyber-card" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="cyber-grid">
-          <!-- Left: Badge with Scanline -->
-          <div class="cyber-badge-wrap">
-            <div class="cyber-badge-inner">
-              <img src="/assets/ethical-hacking-badge.png" alt="Ethical Hacking Badge" />
-              <div class="scanline"></div>
-            </div>
-            <div class="cyber-glow"></div>
-          </div>
-          
-          <!-- Right: Terminal Reveal -->
-          <div class="cyber-content">
-            <div class="terminal-header">
-              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-              <span class="terminal-title">faheem@portfolio:~/certifications</span>
-            </div>
-            <div class="terminal-body">
-              <h3 class="neon-text">Introduction to Ethical Hacking</h3>
-              <p class="cert-meta">Offenso Hackers Academy | Issued: 20-08-2023</p>
-              
-              <div class="terminal-text-wrap">
-                <span class="prompt">$ cat description.txt</span>
-                <p id="typed-cert"></p>
-              </div>
 
-              <div class="secure-tags">
-                <span><i class="devicon-php-plain"></i> Secure PHP</span>
-                <span>Vulnerability Scanning</span>
-                <span>Audit & Defense</span>
-              </div>
-              
-              <div class="cert-footer">
-                <a href="/assets/Mohamed_Faheem_CV.pdf" class="cta-terminal">view_cert.exe</a>
-                <a href="/assets/Mohamed_Faheem_CV.pdf" download class="cta-terminal ghost">download.bin</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ══════════════ PROJECTS ══════════════ -->
   <section id="projects" class="s-projects">
@@ -295,8 +248,15 @@
     <div class="proj-list">
       <!-- Project 0 — ERP Customization -->
       <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image" id="proj-img-erp">
-          <img src="/assets/erp-preview.jpg" alt="ERP System Customization Preview" />
+        <div class="pc-image carousel-container" id="proj-img-erp">
+          <div class="pc-carousel">
+            <img src="/assets/erp-1.jpg" alt="ERP Screen 1" class="active" />
+            <img src="/assets/erp-2.jpg" alt="ERP Screen 2" />
+            <img src="/assets/erp-3.jpg" alt="ERP Screen 3" />
+            <img src="/assets/erp-4.jpg" alt="ERP Screen 4" />
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+          <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
         <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
           <div class="pc-num">01</div>
@@ -314,8 +274,17 @@
 
       <!-- Project 1 — Lapfix AI -->
       <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image" id="proj-img-1">
-          <img src="/assets/tech.png" alt="LapFix AI Preview" />
+        <div class="pc-image carousel-container" id="proj-img-1">
+          <div class="pc-carousel">
+            <img src="/assets/tech.png" alt="LapFix Home Preview" class="active" />
+            <img src="/assets/lapfix-home.png" alt="LapFix Home" />
+            <img src="/assets/lapfix-booking.png" alt="LapFix Booking" />
+            <img src="/assets/lapfix-login.png" alt="LapFix Login" />
+            <img src="/assets/lapfix-profile.png" alt="LapFix Profile" />
+            <img src="/assets/lapfix-screens.png" alt="LapFix Screens" />
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+          <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
         <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
           <div class="pc-num">02</div>
@@ -333,8 +302,15 @@
 
       <!-- Project 2 — MD Logistics -->
       <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image" id="proj-img-2">
-          <img src="/assets/md-billing.png" alt="MD Logistics Preview" />
+        <div class="pc-image carousel-container" id="proj-img-2">
+          <div class="pc-carousel">
+            <img src="/assets/md-billing.png" alt="MD Logistics Preview" class="active" />
+            <img src="/assets/md-dashboard.png" alt="MD Dashboard" />
+            <img src="/assets/md-daysheet.png" alt="MD Daysheet" />
+            <img src="/assets/logistics.png" alt="Logistics Screen" />
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+          <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
         <div class="pc-content" data-aos="fade-right" data-aos-delay="200">
           <div class="pc-num">03</div>
@@ -353,11 +329,35 @@
   </section>
 
   <!-- ══════════════ CERTIFICATIONS ══════════════ -->
-  <section id="certifications" class="s-certs">
+  <section id="certifications" class="s-certs s-projects">
     <span class="sec-num">06</span>
     <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">My <em class="gradient-text">Certifications</em></h2>
-    <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">Verified skills &amp; completed courses.</p>
+    <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">Professional credentials &amp; verified skills.</p>
 
+    <div class="proj-list" style="margin-top: 4rem;">
+      <div class="proj-row" data-aos="fade-up">
+        <div class="pc-image" id="cert-img-1" style="padding: 1rem; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center;">
+          <!-- Using object to embed PDF directly as a visual preview like an image -->
+          <object data="/assets/mohammedfaheemkdy.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" class="pdf-embed" title="Ethical Hacking Certificate">
+            <!-- Fallback image if PDF plugin fails on mobile -->
+            <img src="/assets/ethical-hacking-badge.png" alt="Ethical Hacking Certificate Badge" style="max-width: 80%; opacity: 0.8;" />
+          </object>
+        </div>
+        <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
+          <div class="pc-num">01</div>
+          <span class="pc-tag">Professional Certification</span>
+          <h3>Introduction to Ethical Hacking</h3>
+          <p class="pc-p">Successfully completed foundational training in ethical hacking principles and security concepts. This certification demonstrates my commitment to understanding web security and building robust, protected backend solutions.</p>
+          <p class="cert-meta" style="color:#aaa; font-size:0.9rem; margin-bottom: 2rem;">Offenso Hackers Academy | Issued: 20-08-2023</p>
+          <div class="proj-stack">
+            <span><i class="devicon-php-plain"></i> Secure PHP</span>
+            <span>Vulnerability Scanning</span>
+            <span>Audit & Defense</span>
+          </div>
+          <a href="/assets/mohammedfaheemkdy.pdf" download class="cta-fill small" style="margin-top: 1rem;">Download Certificate ↓</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════════ CONTACT ══════════════ -->
