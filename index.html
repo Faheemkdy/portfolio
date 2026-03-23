@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <!-- AOS — Animate On Scroll -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Typed.js & Vanilla Tilt CDNs -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
   <style>
     /* Custom AOS easing — smooth cubic-bezier for pro feel */
     [data-aos] { --aos-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -68,7 +71,9 @@
         <span class="hn" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-aos-easing="ease-out-cubic">Mohamed</span>
         <span class="hn gradient-text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="220" data-aos-easing="ease-out-cubic">Faheem</span>
       </div>
-      <p class="hero-role" data-aos="fade-up" data-aos-duration="800" data-aos-delay="850" data-aos-easing="ease-out-cubic">PHP Developer &nbsp;·&nbsp; System Technician &nbsp;·&nbsp; Backend Engineer</p>
+      <p class="hero-role" data-aos="fade-up" data-aos-duration="800" data-aos-delay="850" data-aos-easing="ease-out-cubic">
+        <span id="typed-role"></span> &nbsp;·&nbsp; Backend Engineer
+      </p>
       <div class="hero-btns" data-aos="fade-up" data-aos-duration="800" data-aos-delay="980" data-aos-easing="ease-out-cubic">
         <a href="#projects" class="cta-fill">See My Work ↓</a>
         <a href="mailto:mohammedfaheemkdy@gmail.com" class="cta-ghost">Contact Me</a>
@@ -194,29 +199,90 @@
         <div class="sk-icon">⟨/⟩</div>
         <h3>Backend</h3>
         <ul>
-          <li><i class="devicon-php-plain colored"></i> PHP</li><li><i class="devicon-laravel-plain colored"></i> Laravel</li><li><i class="devicon-mysql-plain colored"></i> MySQL</li><li>REST APIs</li>
+          <li data-aos="fade-up" data-aos-delay="700"><i class="devicon-php-plain colored"></i> PHP</li>
+          <li data-aos="fade-up" data-aos-delay="800"><i class="devicon-laravel-plain colored"></i> Laravel</li>
+          <li data-aos="fade-up" data-aos-delay="900"><i class="devicon-mysql-plain colored"></i> MySQL</li>
+          <li data-aos="fade-up" data-aos-delay="1000">REST APIs</li>
         </ul>
       </div>
       <div class="sk-card sk-cyan" data-aos="fade-up" data-aos-duration="800" data-aos-delay="720" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">◈</div>
         <h3>Frontend &amp; Mobile</h3>
         <ul>
-          <li><i class="devicon-html5-plain colored"></i> HTML5 / <i class="devicon-css3-plain colored"></i> CSS3</li><li><i class="devicon-javascript-plain colored"></i> JavaScript</li><li><i class="devicon-react-original colored"></i> React</li><li><i class="devicon-flutter-plain colored"></i> Flutter</li>
+          <li data-aos="fade-up" data-aos-delay="820"><i class="devicon-html5-plain colored"></i> HTML5 / <i class="devicon-css3-plain colored"></i> CSS3</li>
+          <li data-aos="fade-up" data-aos-delay="920"><i class="devicon-javascript-plain colored"></i> JavaScript</li>
+          <li data-aos="fade-up" data-aos-delay="1020"><i class="devicon-react-original colored"></i> React</li>
+          <li data-aos="fade-up" data-aos-delay="1120"><i class="devicon-flutter-plain colored"></i> Flutter</li>
         </ul>
       </div>
       <div class="sk-card sk-blue" data-aos="fade-up" data-aos-duration="800" data-aos-delay="840" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">⚙</div>
         <h3>IT &amp; Hardware</h3>
         <ul>
-          <li>Hardware Repair</li><li>Network Setup</li><li>Network &amp; Server Administration</li><li>Troubleshooting</li>
+          <li data-aos="fade-up" data-aos-delay="940">Hardware Repair</li>
+          <li data-aos="fade-up" data-aos-delay="1040">Network Setup</li>
+          <li data-aos="fade-up" data-aos-delay="1140">Network &amp; Server Administration</li>
+          <li data-aos="fade-up" data-aos-delay="1240">Troubleshooting</li>
         </ul>
       </div>
       <div class="sk-card sk-green" data-aos="fade-up" data-aos-duration="800" data-aos-delay="960" data-aos-easing="ease-out-cubic">
         <div class="sk-icon">✦</div>
         <h3>Other</h3>
         <ul>
-          <li><i class="devicon-c-plain colored"></i> C Language</li><li><i class="devicon-git-plain colored"></i> Git</li><li>Problem Solving</li><li>English / Malayalam / Arabic</li>
+          <li data-aos="fade-up" data-aos-delay="1060"><i class="devicon-c-plain colored"></i> C Language</li>
+          <li data-aos="fade-up" data-aos-delay="1160"><i class="devicon-git-plain colored"></i> Git</li>
+          <li data-aos="fade-up" data-aos-delay="1260">Problem Solving</li>
+          <li data-aos="fade-up" data-aos-delay="1360">English / Malayalam / Arabic</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CYBER CERTIFICATION ══════════════ -->
+  <section id="certifications" class="s-certs">
+    <div class="cyber-container">
+      <span class="sec-num">05</span>
+      <h2 class="sec-h2" data-aos="fade-up" data-aos-duration="700">Security <em class="gradient-text">&amp; Ethics</em></h2>
+      
+      <div class="cyber-card" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="cyber-grid">
+          <!-- Left: Badge with Scanline -->
+          <div class="cyber-badge-wrap">
+            <div class="cyber-badge-inner">
+              <img src="/assets/ethical-hacking-badge.png" alt="Ethical Hacking Badge" />
+              <div class="scanline"></div>
+            </div>
+            <div class="cyber-glow"></div>
+          </div>
+          
+          <!-- Right: Terminal Reveal -->
+          <div class="cyber-content">
+            <div class="terminal-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="terminal-title">faheem@portfolio:~/certifications</span>
+            </div>
+            <div class="terminal-body">
+              <h3 class="neon-text">Introduction to Ethical Hacking</h3>
+              <p class="cert-meta">Offenso Hackers Academy | Issued: 20-08-2023</p>
+              
+              <div class="terminal-text-wrap">
+                <span class="prompt">$ cat description.txt</span>
+                <p id="typed-cert"></p>
+              </div>
+
+              <div class="secure-tags">
+                <span><i class="devicon-php-plain"></i> Secure PHP</span>
+                <span>Vulnerability Scanning</span>
+                <span>Audit & Defense</span>
+              </div>
+              
+              <div class="cert-footer">
+                <a href="/assets/Mohamed_Faheem_CV.pdf" class="cta-terminal">view_cert.exe</a>
+                <a href="/assets/Mohamed_Faheem_CV.pdf" download class="cta-terminal ghost">download.bin</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -228,7 +294,7 @@
 
     <!-- Project 1 — Lapfix AI -->
     <div class="proj-card-grid">
-      <div class="proj-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+      <div class="proj-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3">
         <div class="pc-image">
           <img src="/assets/tech.png" alt="LapFix AI Preview" />
           <div class="pc-overlay">
@@ -251,7 +317,7 @@
       </div>
 
       <!-- Project 2 — MD Logistics -->
-      <div class="proj-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+      <div class="proj-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3">
         <div class="pc-image">
           <img src="/assets/md-billing.png" alt="MD Logistics Preview" />
           <div class="pc-overlay">
@@ -281,40 +347,6 @@
     <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">My <em class="gradient-text">Certifications</em></h2>
     <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">Verified skills &amp; completed courses.</p>
 
-    <div class="proj-block">
-      <div class="proj-info" data-aos="fade-right" data-aos-duration="900" data-aos-delay="700" data-aos-easing="ease-out-cubic">
-        <div class="proj-num">03</div>
-        <h3>Introduction to Ethical Hacking</h3>
-        <p class="proj-type">Professional Certification &nbsp;·&nbsp; Offenso Hackers Academy</p>
-        <p>
-          Gained fundamental knowledge in cybersecurity and ethical hacking through a professional certification course. The course covered critical security concepts, including network security, vulnerability assessment, and defensive strategies to identify and mitigate cyber threats.
-        </p>
-        <ul class="proj-features">
-          <li>Network Security &amp; Vulnerability Assessment</li>
-          <li>Penetration Testing Fundamentals</li>
-          <li>Security Protocols and System Hardening</li>
-          <li>Identifying &amp; Mitigating Cyber Threats</li>
-          <li>Ethical Hacking Methodologies</li>
-        </ul>
-        <div class="proj-stack">
-          <span><i class="devicon-network-plain colored"></i> Network</span>
-          <span><i class="devicon-linux-plain colored"></i> Security</span>
-          <span>Ethical Hacking</span>
-        </div>
-        <div class="cert-actions">
-          <a href="/assets/Mohamed_Faheem_CV.pdf" target="_blank" class="cta-ghost small">View Full Certificate ↗</a>
-          <a href="/assets/Mohamed_Faheem_CV.pdf" download class="cta-fill small">Download PDF ↓</a>
-        </div>
-      </div>
-
-      <!-- Certificate Badge Image -->
-      <div class="proj-screens" data-aos="fade-left" data-aos-duration="900" data-aos-delay="180" data-aos-easing="ease-out-cubic">
-        <div class="screen-carousel cert-preview-wrap">
-          <img src="/assets/ethical-hacking-badge.png" alt="Ethical Hacking Certification Badge" class="sc-img active cert-badge-img" />
-        </div>
-        <div class="proj-glow cyan"></div>
-      </div>
-    </div>
   </section>
 
   <!-- ══════════════ CONTACT ══════════════ -->

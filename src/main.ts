@@ -24,8 +24,55 @@ class App {
     this.initScreenCarousel();
     this.initHamburger();
     this.initPagination();
+    this.initTyped();
+    this.initTilt();
     if (typeof (window as any).AOS !== 'undefined') {
       (window as any).AOS.refresh();
+    }
+  }
+
+  private initTyped() {
+    const typedRole = document.getElementById('typed-role');
+    if (typedRole && (window as any).Typed) {
+      new (window as any).Typed('#typed-role', {
+        strings: ['PHP Developer', 'System Technician'],
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 2000,
+        loop: true,
+      });
+    }
+
+    const typedCert = document.getElementById('typed-cert');
+    if (typedCert && (window as any).Typed) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            new (window as any).Typed('#typed-cert', {
+              strings: ['Successfully completed foundational training in ethical hacking principles and security concepts. This certification demonstrates my commitment to understanding web security and building robust, protected backend solutions.'],
+              typeSpeed: 30,
+              showCursor: true,
+              cursorChar: '_',
+              onComplete: (self: any) => {
+                self.cursor.style.display = 'none';
+              }
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(typedCert);
+    }
+  }
+
+  private initTilt() {
+    if ((window as any).VanillaTilt) {
+      (window as any).VanillaTilt.init(document.querySelectorAll(".proj-card"), {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+      });
     }
   }
 
