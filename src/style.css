@@ -211,6 +211,10 @@ section {
   box-shadow: 0 0 20px var(--cyan);
 }
 
+@media (max-width: 900px) {
+  .page-dots { display: none; }
+}
+
 /* ══════════════════════════════════════
    MODERN SCROLL ANIMATIONS
 ══════════════════════════════════════ */
@@ -292,6 +296,7 @@ section {
 .hero-inner {
   text-align: center;
   display: flex; flex-direction: column; align-items: center;
+  margin-top: -4vh;
 }
 
 .hero-badge {
@@ -299,7 +304,6 @@ section {
   font-size: .72rem; text-transform: uppercase; letter-spacing: .2em;
   color: var(--green); border: 1px solid rgba(91,255,192,.3);
   padding: .38rem 1.1rem; border-radius: 100px; margin-bottom: 2.5rem;
-  opacity: 0; animation: fup .7s 1s var(--ease) forwards;
 }
 
 .hero-name {
@@ -311,11 +315,8 @@ section {
 }
 
 .hn {
-  display: block; opacity: 0; transform: translateY(110%);
-  animation: hnIn .9s var(--ease) forwards;
+  display: block; opacity: 1; transform: none;
 }
-.hn:nth-child(1) { animation-delay: 1.1s; }
-.hn:nth-child(2) { animation-delay: 1.25s; }
 .hn.g { 
   background: linear-gradient(90deg, var(--cyan), var(--purple));
   -webkit-background-clip: text; background-clip: text;
@@ -326,18 +327,15 @@ section {
 .hero-role {
   font-size: .88rem; letter-spacing: .18em; text-transform: uppercase;
   color: var(--dim); margin-bottom: 2.5rem;
-  opacity: 0; animation: fup .7s 1.55s var(--ease) forwards;
 }
 
 .hero-btns {
   display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;
   justify-content: center;
-  opacity: 0; animation: fup .7s 1.75s var(--ease) forwards;
 }
 
 .hero-info {
   display: flex; gap: 1.2rem; font-size: .8rem; color: var(--dim);
-  opacity: 0; animation: fup .7s 1.9s var(--ease) forwards;
 }
 
 @keyframes fup {
@@ -370,9 +368,8 @@ section {
 .cta-ghost.small { font-size: .75rem; padding: .6rem 1.5rem; margin-top: 1.6rem; }
 
 .scroll-hint {
-  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: .4rem;
-  opacity: 0; animation: fup .7s 2.1s var(--ease) forwards;
+  position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
 }
 .sh-line {
   width: 1px; height: 52px;
