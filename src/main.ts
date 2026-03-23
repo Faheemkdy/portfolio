@@ -4,7 +4,6 @@ import Lenis from 'lenis';
 
 class App {
   private scroller!: Lenis;
-  private sceneManager!: SceneManager;
 
   constructor() {
     this.initLoader();
@@ -24,7 +23,7 @@ class App {
     this.initNav();
     this.initScreenCarousel();
     this.initHamburger();
-    // Refresh AOS after boot so it recalculates element positions
+    this.initPagination();
     if (typeof (window as any).AOS !== 'undefined') {
       (window as any).AOS.refresh();
     }
@@ -32,7 +31,7 @@ class App {
 
   private initScroller() {
     this.scroller = new Lenis({
-      duration: 1.35,
+      duration: 2.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
@@ -46,7 +45,7 @@ class App {
   private initScene() {
     const c = document.getElementById('canvas-container');
     if (c) {
-      this.sceneManager = new SceneManager(c);
+      new SceneManager(c);
     }
   }
 
@@ -55,8 +54,6 @@ class App {
     const links = document.querySelectorAll('.nav-links a');
     const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
 
-    // smooth nav click
-    // smooth nav click for desktop links
     links.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -68,7 +65,6 @@ class App {
       });
     });
 
-    // smooth nav click for mobile overlay links
     const mobileLinks = document.querySelectorAll('.mobile-nav-overlay a[href^="#"]');
     mobileLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
@@ -84,7 +80,6 @@ class App {
       });
     });
 
-    // nav background + scroll-spy
     this.scroller.on('scroll', ({ scroll }: { scroll: number }) => {
       nav.classList.toggle('bg', scroll > 60);
 
@@ -96,6 +91,48 @@ class App {
           links.forEach((l) => {
             l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
           });
+        }
+      });
+    });
+  }
+
+  private initPagination() {
+    const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
+    if (sections.length === 0) return;
+
+    const nav = document.createElement('nav');
+    nav.className = 'page-dots';
+    nav.setAttribute('aria-label', 'Page navigation');
+
+    sections.forEach((sec, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'pd-dot';
+      dot.setAttribute('aria-label', `Go to ${sec.id}`);
+      dot.setAttribute('data-section', sec.id);
+
+      // Tooltip label from heading or section id
+      const rawLabel = sec.querySelector('h2')?.textContent?.replace(/\s+/g, ' ').trim()
+        || sec.id.charAt(0).toUpperCase() + sec.id.slice(1);
+      dot.setAttribute('data-label', rawLabel.substring(0, 24));
+
+      dot.addEventListener('click', () => {
+        this.scroller.scrollTo(sec, { offset: -80 });
+      });
+
+      if (i === 0) dot.classList.add('active');
+      nav.appendChild(dot);
+    });
+
+    document.body.appendChild(nav);
+
+    this.scroller.on('scroll', ({ scroll }: { scroll: number }) => {
+      const dots = nav.querySelectorAll('.pd-dot');
+      sections.forEach((sec, i) => {
+        const top = sec.offsetTop - window.innerHeight / 2;
+        const bottom = top + sec.offsetHeight;
+        if (scroll >= top && scroll < bottom) {
+          dots.forEach((d) => d.classList.remove('active'));
+          dots[i]?.classList.add('active');
         }
       });
     });
