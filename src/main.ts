@@ -50,11 +50,15 @@ class App {
           if (entry.isIntersecting) {
             new (window as any).Typed('#typed-cert', {
               strings: ['Successfully completed foundational training in ethical hacking principles and security concepts. This certification demonstrates my commitment to understanding web security and building robust, protected backend solutions.'],
-              typeSpeed: 30,
+              typeSpeed: 35,
               showCursor: true,
               cursorChar: '_',
+              preStringTyped: () => {
+                this.startTypewriterSound(typedCert);
+              },
               onComplete: (self: any) => {
                 self.cursor.style.display = 'none';
+                this.stopTypewriterSound();
               }
             });
             observer.unobserve(entry.target);
@@ -65,7 +69,57 @@ class App {
     }
   }
 
+  private typewriterAudioCtx: AudioContext | null = null;
+  private typewriterObserver: MutationObserver | null = null;
+
+  private startTypewriterSound(el: HTMLElement) {
+    if (!this.typewriterAudioCtx) {
+      this.typewriterAudioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    }
+    
+    this.typewriterObserver = new MutationObserver(() => {
+      this.playTick();
+    });
+    
+    this.typewriterObserver.observe(el, { childList: true, characterData: true, subtree: true });
+  }
+
+  private stopTypewriterSound() {
+    this.typewriterObserver?.disconnect();
+  }
+
+  private playTick() {
+    if (!this.typewriterAudioCtx) return;
+    const ctx = this.typewriterAudioCtx;
+    if (ctx.state === 'suspended') ctx.resume();
+    
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(150 + Math.random() * 100, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.05);
+    
+    gain.gain.setValueAtTime(0.05, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+    
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+  }
+
   private initTilt() {
+    // Project Click Pop Animation
+    document.querySelectorAll('.pc-image').forEach(img => {
+      img.addEventListener('click', () => {
+        img.classList.add('popping');
+        setTimeout(() => img.classList.remove('popping'), 400);
+        this.playTick(); // Reuse tick for click feedback
+      });
+    });
+
     if ((window as any).VanillaTilt) {
       (window as any).VanillaTilt.init(document.querySelectorAll(".proj-card"), {
         max: 10,
