@@ -57,6 +57,8 @@ class App {
       if (!images.length || !prevBtn || !nextBtn) return;
       
       let currentIndex = 0;
+      let intervalId: number | null = null;
+      let isInteracted = false;
       
       const showImage = (index: number) => {
         images.forEach(img => img.classList.remove('active'));
@@ -64,14 +66,37 @@ class App {
         this.playTick(); // subtle click sound
       };
       
+      const startAutoPlay = () => {
+        if (intervalId) return;
+        intervalId = window.setInterval(() => {
+          if (!isInteracted) {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+          }
+        }, 3000);
+      };
+
+      const stopAutoPlay = () => {
+        if (intervalId) {
+          window.clearInterval(intervalId);
+          intervalId = null;
+        }
+      };
+
+      startAutoPlay();
+      
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation(); // prevent triggering image pop
+        isInteracted = true;
+        stopAutoPlay();
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         showImage(currentIndex);
       });
       
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        isInteracted = true;
+        stopAutoPlay();
         currentIndex = (currentIndex + 1) % images.length;
         showImage(currentIndex);
       });
