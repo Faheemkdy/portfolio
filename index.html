@@ -15,7 +15,7 @@
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
   <style>
-    /* Custom AOS easing — smooth cubic-bezier for pro feel */
+    /* Custom AOS easing */
     [data-aos] { --aos-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   </style>
 </head>
@@ -64,27 +64,22 @@
 
   <!-- ══════════════ HERO ══════════════ -->
   <section id="home" class="s-hero">
+    <video src="https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm" autoplay loop muted playsinline class="video-bg"></video>
     <div class="hero-inner">
-      <span class="hero-badge" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0" data-aos-easing="ease-out-cubic">● Available for Work</span>
-      <!-- Priority 2: Name text — sequential fade-up -->
+      <span class="hero-badge">● Available for Work</span>
       <div class="hero-name">
-        <span class="hn" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-aos-easing="ease-out-cubic">Mohamed</span>
-        <span class="hn gradient-text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="220" data-aos-easing="ease-out-cubic">Faheem</span>
+        <span class="hn glow-text">Mohamed</span>
+        <span class="hn gradient-text glow-text">Faheem</span>
       </div>
-      <p class="hero-role" data-aos="fade-up" data-aos-duration="800" data-aos-delay="850" data-aos-easing="ease-out-cubic">
+      <p class="hero-role">
         <span id="typed-role"></span> &nbsp;·&nbsp; Backend Engineer
       </p>
-      <div class="hero-btns" data-aos="fade-up" data-aos-duration="800" data-aos-delay="980" data-aos-easing="ease-out-cubic">
-        <a href="#projects" class="cta-fill">See My Work ↓</a>
+      <div class="hero-btns">
+        <a href="#projects" class="cta-fill">Explore Projects ↓</a>
         <a href="mailto:mohammedfaheemkdy@gmail.com" class="cta-ghost">Contact Me</a>
-        <a href="/assets/Mohamed_Faheem_CV.pdf" download class="cta-ghost">Download CV ↓</a>
-      </div>
-      <div class="hero-info" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400" data-aos-easing="ease-out-cubic">
-        <span>📍 Kondotty, Malappuram</span>
-        <span>+91 95394 01067</span>
       </div>
     </div>
-    <div class="scroll-hint" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1200" data-aos-offset="0">
+    <div class="scroll-hint">
       <div class="sh-line"></div>
       <span>scroll</span>
     </div>
@@ -94,24 +89,22 @@
   <section id="about" class="s-about">
     <span class="sec-num">01</span>
     <div class="about-grid">
-      <!-- Priority 2: Text content -->
       <div class="about-text">
-        <h2 data-aos="fade-up" data-aos-duration="800" data-aos-delay="650" data-aos-easing="ease-out-cubic">Crafting<br/><em class="gradient-text">Digital Solutions</em></h2>
-        <p class="about-p" data-aos="fade-up" data-aos-duration="800" data-aos-delay="780" data-aos-easing="ease-out-cubic">
+        <h2 data-aos="fade-up" data-aos-duration="800">Crafting<br/><em class="gradient-text">Digital Solutions</em></h2>
+        <p class="about-p" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           I'm a <strong>PHP Developer</strong> currently training at Duplex Solutions Co and a seasoned
           <strong>System Technician</strong> with 4+ years in hardware, networking, and IT support.
           My dual expertise bridges the gap between software and hardware — I understand
           both the stack and the infrastructure it runs on.
         </p>
-        <div class="about-stats" data-aos="fade-up" data-aos-duration="800" data-aos-delay="900" data-aos-easing="ease-out-cubic">
+        <div class="about-stats glass-card" data-aos="fade-up" data-aos-delay="200">
           <div class="astat"><div class="astat-n">8<span>mo</span></div><div class="astat-l">PHP Dev</div></div>
           <div class="astat"><div class="astat-n">4+<span>yr</span></div><div class="astat-l">IT Support</div></div>
           <div class="astat"><div class="astat-n">3</div><div class="astat-l">Languages</div></div>
           <div class="astat"><div class="astat-n">3</div><div class="astat-l">Projects</div></div>
         </div>
       </div>
-      <!-- Priority 1: Profile image animates first (0 delay) -->
-      <div class="about-img" data-aos="fade-up" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
+      <div class="about-img" data-aos="zoom-in" data-aos-duration="1000">
         <img src="/assets/php-dev.png" alt="Mohamed Faheem PHP Developer workspace" />
         <div class="img-fade"></div>
         <span class="img-label">PHP Developer</span>
@@ -122,16 +115,14 @@
   <!-- ══════════════ EXPERIENCE ══════════════ -->
   <section id="experience" class="s-exp">
     <span class="sec-num">02</span>
-    <h2 class="sec-h2" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Professional <em class="gradient-text">Journey</em></h2>
+    <h2 class="sec-h2" data-aos="fade-up">Professional <em class="gradient-text">Journey</em></h2>
     <div class="exp-grid">
-      <!-- Priority 1: Image animates first -->
-      <div class="exp-img-wrap" data-aos="fade-up" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
+      <div class="exp-img-wrap" data-aos="fade-right" data-aos-duration="1000">
         <img src="/assets/tech.png" alt="System Technician" />
         <div class="img-fade-r"></div>
       </div>
-      <!-- Priority 2: Experience cards (Duplex Solutions first) -->
       <div class="exp-cards">
-        <div class="xcard active-x" data-aos="fade-up" data-aos-duration="800" data-aos-delay="650" data-aos-easing="ease-out-cubic">
+        <div class="xcard glass-card active-x" data-aos="fade-up" data-aos-delay="100">
           <div class="xc-badge">Current</div>
           <div class="xc-date">June 2025 – Present</div>
           <div class="xc-title">PHP Developer — Trainee</div>
@@ -139,14 +130,14 @@
           <p class="xc-desc">Developing enterprise-grade web applications using PHP, Laravel, and MySQL. Successfully customized an existing ERP system by developing new features and optimizing backend logic for enhanced performance and workflow efficiency.</p>
           <div class="xc-tags"><span><i class="devicon-php-plain"></i> PHP</span><span><i class="devicon-laravel-plain"></i> Laravel</span><span><i class="devicon-mysql-plain"></i> MySQL</span></div>
         </div>
-        <div class="xcard" data-aos="fade-up" data-aos-duration="800" data-aos-delay="780" data-aos-easing="ease-out-cubic">
+        <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="200">
           <div class="xc-date">2021 – Present</div>
           <div class="xc-title">System Technician</div>
           <div class="xc-co">PCFIX</div>
           <p class="xc-desc">Expert technical lead for hardware architecture, advanced system diagnostics, and large-scale network deployments. Managing end-to-end IT infrastructure for clients.</p>
           <div class="xc-tags"><span>Hardware</span><span>Networking</span><span>Diagnostics</span></div>
         </div>
-        <div class="xcard" data-aos="fade-up" data-aos-duration="800" data-aos-delay="900" data-aos-easing="ease-out-cubic">
+        <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="300">
           <div class="xc-date">2021 – 2025</div>
           <div class="xc-title">System Technician</div>
           <div class="xc-co">Nano Computers</div>
@@ -160,15 +151,14 @@
   <!-- ══════════════ EDUCATION ══════════════ -->
   <section id="education" class="s-edu">
     <span class="sec-num">03</span>
-    <h2 class="sec-h2" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Academic <em class="gradient-text">Background</em></h2>
+    <h2 class="sec-h2" data-aos="fade-up">Academic <em class="gradient-text">Background</em></h2>
     <div class="exp-grid">
-      <!-- Priority 1: Image first -->
-      <div class="exp-img-wrap" data-aos="fade-up" data-aos-duration="900" data-aos-delay="0" data-aos-easing="ease-out-cubic">
+      <div class="exp-img-wrap" data-aos="fade-right" data-aos-duration="1000">
         <img src="/assets/education.png" alt="Education background" />
         <div class="img-fade-r"></div>
       </div>
       <div class="exp-cards">
-        <div class="xcard active-x" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150" data-aos-easing="ease-out-cubic">
+        <div class="xcard glass-card active-x" data-aos="fade-up" data-aos-delay="100">
           <div class="xc-badge">Degree</div>
           <div class="xc-date">2022 – 2025</div>
           <div class="xc-title">Bsc. Computer Science</div>
@@ -176,7 +166,7 @@
           <p class="xc-desc">Studied core computer science concepts including programming, databases, algorithms, networking, and web technologies. Built a strong theoretical foundation to complement hands-on development experience.</p>
           <div class="xc-tags"><span>Computer Science</span><span>Programming</span><span>Databases</span><span>Networking</span></div>
         </div>
-        <div class="xcard" data-aos="fade-up" data-aos-duration="800" data-aos-delay="280" data-aos-easing="ease-out-cubic">
+        <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="200">
           <div class="xc-date">2020 – 2022</div>
           <div class="xc-title">Plus Two — Science</div>
           <div class="xc-co">GVHSS Kondotty</div>
@@ -189,50 +179,49 @@
 
   <!-- ══════════════ SKILLS ══════════════ -->
   <section id="skills" class="s-skills">
+    <video src="https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/encryption-bg.webm" autoplay loop muted playsinline class="video-bg"></video>
     <span class="sec-num">04</span>
-    <!-- Priority 2: Skills text header -->
-    <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Technical <em class="gradient-text">Arsenal</em></h2>
-    <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">Tools and technologies I work with.</p>
-    <!-- Priority 2: Skill cards — staggered sequentially -->
+    <h2 class="sec-h2 centered glow-text" data-aos="fade-up">Technical <em class="gradient-text">Arsenal</em></h2>
+    <p class="sec-sub centered" data-aos="fade-up" data-aos-delay="100">Tools and technologies I work with.</p>
     <div class="skill-cards stagger">
-      <div class="sk-card sk-purple" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" data-aos-easing="ease-out-cubic">
+      <div class="sk-card glass-card sk-purple" data-aos="fade-up" data-aos-delay="200">
         <div class="sk-icon">⟨/⟩</div>
         <h3>Backend</h3>
         <ul>
-          <li data-aos="fade-up" data-aos-delay="700"><i class="devicon-php-plain colored"></i> PHP</li>
-          <li data-aos="fade-up" data-aos-delay="800"><i class="devicon-laravel-plain colored"></i> Laravel</li>
-          <li data-aos="fade-up" data-aos-delay="900"><i class="devicon-mysql-plain colored"></i> MySQL</li>
-          <li data-aos="fade-up" data-aos-delay="1000">REST APIs</li>
+          <li><i class="devicon-php-plain colored"></i> PHP</li>
+          <li><i class="devicon-laravel-plain colored"></i> Laravel</li>
+          <li><i class="devicon-mysql-plain colored"></i> MySQL</li>
+          <li>REST APIs</li>
         </ul>
       </div>
-      <div class="sk-card sk-cyan" data-aos="fade-up" data-aos-duration="800" data-aos-delay="720" data-aos-easing="ease-out-cubic">
+      <div class="sk-card glass-card sk-cyan" data-aos="fade-up" data-aos-delay="300">
         <div class="sk-icon">◈</div>
-        <h3>Frontend &amp; Mobile</h3>
+        <h3>Frontend</h3>
         <ul>
-          <li data-aos="fade-up" data-aos-delay="820"><i class="devicon-html5-plain colored"></i> HTML5 / <i class="devicon-css3-plain colored"></i> CSS3</li>
-          <li data-aos="fade-up" data-aos-delay="920"><i class="devicon-javascript-plain colored"></i> JavaScript</li>
-          <li data-aos="fade-up" data-aos-delay="1020"><i class="devicon-react-original colored"></i> React</li>
-          <li data-aos="fade-up" data-aos-delay="1120"><i class="devicon-flutter-plain colored"></i> Flutter</li>
+          <li><i class="devicon-html5-plain colored"></i> HTML5 / CSS3</li>
+          <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
+          <li><i class="devicon-react-original colored"></i> React</li>
+          <li><i class="devicon-flutter-plain colored"></i> Flutter</li>
         </ul>
       </div>
-      <div class="sk-card sk-blue" data-aos="fade-up" data-aos-duration="800" data-aos-delay="840" data-aos-easing="ease-out-cubic">
+      <div class="sk-card glass-card sk-blue" data-aos="fade-up" data-aos-delay="400">
         <div class="sk-icon">⚙</div>
         <h3>IT &amp; Hardware</h3>
         <ul>
-          <li data-aos="fade-up" data-aos-delay="940">Hardware Repair</li>
-          <li data-aos="fade-up" data-aos-delay="1040">Network Setup</li>
-          <li data-aos="fade-up" data-aos-delay="1140">Network &amp; Server Administration</li>
-          <li data-aos="fade-up" data-aos-delay="1240">Troubleshooting</li>
+          <li>Hardware Repair</li>
+          <li>Network Setup</li>
+          <li>Server Admin</li>
+          <li>Troubleshooting</li>
         </ul>
       </div>
-      <div class="sk-card sk-green" data-aos="fade-up" data-aos-duration="800" data-aos-delay="960" data-aos-easing="ease-out-cubic">
+      <div class="sk-card glass-card sk-green" data-aos="fade-up" data-aos-delay="500">
         <div class="sk-icon">✦</div>
         <h3>Other</h3>
         <ul>
-          <li data-aos="fade-up" data-aos-delay="1060"><i class="devicon-c-plain colored"></i> C Language</li>
-          <li data-aos="fade-up" data-aos-delay="1160"><i class="devicon-git-plain colored"></i> Git</li>
-          <li data-aos="fade-up" data-aos-delay="1260">Problem Solving</li>
-          <li data-aos="fade-up" data-aos-delay="1360">English / Malayalam / Arabic</li>
+          <li><i class="devicon-c-plain colored"></i> C Language</li>
+          <li><i class="devicon-git-plain colored"></i> Git</li>
+          <li>Problem Solving</li>
+          <li>English / Malayalam / Arabic</li>
         </ul>
       </div>
     </div>
@@ -243,12 +232,12 @@
   <!-- ══════════════ PROJECTS ══════════════ -->
   <section id="projects" class="s-projects">
     <span class="sec-num">05</span>
-    <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">Featured <em class="gradient-text">Projects</em></h2>
+    <h2 class="sec-h2 centered" data-aos="fade-up">Featured <em class="gradient-text">Projects</em></h2>
 
     <div class="proj-list">
       <!-- Project 0 — ERP Customization -->
       <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image carousel-container" id="proj-img-erp">
+        <div class="pc-image carousel-container" id="proj-img-erp" data-aos="fade-right" data-aos-delay="100">
           <div class="pc-carousel">
             <img src="/assets/erp-1.png" alt="ERP Today Appointments" class="active" />
             <img src="/assets/erp-2.png" alt="ERP Appointment Report" />
@@ -258,7 +247,7 @@
           <button class="carousel-btn prev" aria-label="Previous image">‹</button>
           <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
-        <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
+        <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
           <div class="pc-num">01</div>
           <span class="pc-tag">Professional Work — Duplex Solutions</span>
           <h3>ERP System Customization</h3>
@@ -274,7 +263,7 @@
 
       <!-- Project 1 — Lapfix AI -->
       <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image carousel-container" id="proj-img-1">
+        <div class="pc-image carousel-container" id="proj-img-1" data-aos="fade-right" data-aos-delay="100">
           <div class="pc-carousel">
             <img src="/assets/tech.png" alt="LapFix Home Preview" class="active" />
             <img src="/assets/lapfix-home.png" alt="LapFix Home" />
@@ -286,7 +275,7 @@
           <button class="carousel-btn prev" aria-label="Previous image">‹</button>
           <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
-        <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
+        <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
           <div class="pc-num">02</div>
           <span class="pc-tag">AI-Powered Marketplace</span>
           <h3>LapFix AI</h3>
@@ -302,7 +291,7 @@
 
       <!-- Project 2 — MD Logistics -->
       <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image carousel-container" id="proj-img-2">
+        <div class="pc-image carousel-container" id="proj-img-2" data-aos="fade-right" data-aos-delay="100">
           <div class="pc-carousel">
             <img src="/assets/md-billing.png" alt="MD Logistics Preview" class="active" />
             <img src="/assets/md-dashboard.png" alt="MD Dashboard" />
@@ -312,7 +301,7 @@
           <button class="carousel-btn prev" aria-label="Previous image">‹</button>
           <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
-        <div class="pc-content" data-aos="fade-right" data-aos-delay="200">
+        <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
           <div class="pc-num">03</div>
           <span class="pc-tag">Logistics ERP</span>
           <h3>MD Logistics Billing</h3>
@@ -401,6 +390,13 @@
     once: true,
     offset: 80,
     mirror: false
+  });
+  
+  // Refresh AOS after a timeout to ensure everything loads and flexbox settles
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      AOS.refresh();
+    }, 1000);
   });
 </script>
 <script type="module" src="/src/main.ts"></script>

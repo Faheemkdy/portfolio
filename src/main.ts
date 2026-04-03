@@ -1,6 +1,10 @@
 import './style.css';
 import { SceneManager } from './scene';
 import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 class App {
   private scroller!: Lenis;
@@ -23,13 +27,33 @@ class App {
     this.initNav();
     this.initScreenCarousel();
     this.initHamburger();
-    this.initPagination();
     this.initTyped();
     this.initCarousels();
     this.initTilt();
-    if (typeof (window as any).AOS !== 'undefined') {
-      (window as any).AOS.refresh();
-    }
+    this.initGSAP(); // New Cinematic Animations
+  }
+
+  private initGSAP() {
+    // Hero Text Animation — runs on page load, no scroll needed
+    gsap.from('.hero-name .hn', {
+      y: 80,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: 'power4.out',
+      delay: 0.5
+    });
+    gsap.from('.hero-badge, .hero-role, .hero-btns', {
+      opacity: 0,
+      y: 30,
+      duration: 0.9,
+      stagger: 0.15,
+      delay: 1.2,
+      ease: 'power2.out'
+    });
+
+    // We removed GSAP ScrollTriggers in favor of restoring the requested AOS library.
+    // Three.js animations are managed in SceneManager.
   }
 
   private initTyped() {
@@ -214,47 +238,6 @@ class App {
     });
   }
 
-  private initPagination() {
-    const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
-    if (sections.length === 0) return;
-
-    const nav = document.createElement('nav');
-    nav.className = 'page-dots';
-    nav.setAttribute('aria-label', 'Page navigation');
-
-    sections.forEach((sec, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'pd-dot';
-      dot.setAttribute('aria-label', `Go to ${sec.id}`);
-      dot.setAttribute('data-section', sec.id);
-
-      // Tooltip label from heading or section id
-      const rawLabel = sec.querySelector('h2')?.textContent?.replace(/\s+/g, ' ').trim()
-        || sec.id.charAt(0).toUpperCase() + sec.id.slice(1);
-      dot.setAttribute('data-label', rawLabel.substring(0, 24));
-
-      dot.addEventListener('click', () => {
-        this.scroller.scrollTo(sec, { offset: -80 });
-      });
-
-      if (i === 0) dot.classList.add('active');
-      nav.appendChild(dot);
-    });
-
-    document.body.appendChild(nav);
-
-    this.scroller.on('scroll', ({ scroll }: { scroll: number }) => {
-      const dots = nav.querySelectorAll('.pd-dot');
-      sections.forEach((sec, i) => {
-        const top = sec.offsetTop - window.innerHeight / 2;
-        const bottom = top + sec.offsetHeight;
-        if (scroll >= top && scroll < bottom) {
-          dots.forEach((d) => d.classList.remove('active'));
-          dots[i]?.classList.add('active');
-        }
-      });
-    });
-  }
 
   private initScreenCarousel() {
     const carousels = document.querySelectorAll('.screen-carousel');

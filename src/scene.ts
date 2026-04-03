@@ -4,17 +4,17 @@ export class SceneManager {
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
-  private globe!: THREE.Mesh;
-  private atmosphere!: THREE.Mesh;
   private stars!: THREE.Points;
-  private ring!: THREE.Mesh;
+  private dust!: THREE.Points;
   private mouseX: number = 0;
   private mouseY: number = 0;
+  private targetX: number = 0;
+  private targetY: number = 0;
 
   constructor(container: HTMLElement) {
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera.position.z = 2.8;
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera.position.z = 1;
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -31,114 +31,83 @@ export class SceneManager {
     });
 
     window.addEventListener('mousemove', (e) => {
-      this.mouseX = (e.clientX - window.innerWidth / 2) / 120;
-      this.mouseY = (e.clientY - window.innerHeight / 2) / 120;
+      this.targetX = (e.clientX - window.innerWidth / 2) * 0.0001;
+      this.targetY = (e.clientY - window.innerHeight / 2) * 0.0001;
     });
   }
 
   private buildScene() {
-    // ── Stars ──
+    // ── Primary Stars ──
     const starGeo = new THREE.BufferGeometry();
-    const verts: number[] = [];
-    for (let i = 0; i < 5000; i++) {
-      verts.push(
-        (Math.random() - 0.5) * 22,
-        (Math.random() - 0.5) * 22,
-        -Math.random() * 12
-      );
+    const starVerts: number[] = [];
+    const starColors: number[] = [];
+    
+    for (let i = 0; i < 6000; i++) {
+      const x = (Math.random() - 0.5) * 4;
+      const y = (Math.random() - 0.5) * 4;
+      const z = (Math.random() - 0.5) * 4;
+      starVerts.push(x, y, z);
+      
+      const r = 0.8 + Math.random() * 0.2;
+      const g = 0.8 + Math.random() * 0.2;
+      const b = 1.0;
+      starColors.push(r, g, b);
     }
-    starGeo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+    
+    starGeo.setAttribute('position', new THREE.Float32BufferAttribute(starVerts, 3));
+    starGeo.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+    
     this.stars = new THREE.Points(
       starGeo,
-      new THREE.PointsMaterial({ color: 0xffffff, size: 0.014, transparent: true, opacity: 0.45 })
+      new THREE.PointsMaterial({
+        size: 0.003,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        sizeAttenuation: true
+      })
     );
     this.scene.add(this.stars);
 
-    // ── Core globe (dark, not solid black) ──
-    const globeGeo = new THREE.SphereGeometry(1, 64, 64);
-    const globeMat = new THREE.MeshStandardMaterial({
-      color: 0x080815,
-      roughness: 0.85,
-      metalness: 0.2,
-    });
-    this.globe = new THREE.Mesh(globeGeo, globeMat);
-    this.scene.add(this.globe);
-
-    // ── Atmosphere glow (mint green, like tiwis.fr) ──
-    const atmGeo = new THREE.SphereGeometry(1.22, 64, 64);
-    const atmMat = new THREE.ShaderMaterial({
-      transparent: true,
-      side: THREE.BackSide,
-      uniforms: {
-        glowColor: { value: new THREE.Color(0x5bffc0) }, // mint green
-      },
-      vertexShader: `
-        varying vec3 vNormal;
-        void main() {
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform vec3 glowColor;
-        varying vec3 vNormal;
-        void main() {
-          float intensity = pow(0.55 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 4.0);
-          gl_FragColor = vec4(glowColor, intensity * 0.9);
-        }
-      `,
-    });
-    this.atmosphere = new THREE.Mesh(atmGeo, atmMat);
-    this.scene.add(this.atmosphere);
-
-    // ── Outer purple glow ring ──
-    const ringGeo = new THREE.SphereGeometry(1.45, 64, 64);
-    const ringMat = new THREE.ShaderMaterial({
-      transparent: true,
-      side: THREE.BackSide,
-      uniforms: {
-        glowColor: { value: new THREE.Color(0xc47bff) }, // soft purple
-      },
-      vertexShader: `
-        varying vec3 vNormal;
-        void main() {
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform vec3 glowColor;
-        varying vec3 vNormal;
-        void main() {
-          float intensity = pow(0.5 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 6.0);
-          gl_FragColor = vec4(glowColor, intensity * 0.5);
-        }
-      `,
-    });
-    this.ring = new THREE.Mesh(ringGeo, ringMat);
-    this.scene.add(this.ring);
-
-    // ── Lights ──
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.15));
-
-    const l1 = new THREE.PointLight(0x5bffc0, 2.5); // mint
-    l1.position.set(2, 2, 2);
-    this.scene.add(l1);
-
-    const l2 = new THREE.PointLight(0xc47bff, 1.5); // purple
-    l2.position.set(-2, -1, 2);
-    this.scene.add(l2);
+    // ── Space Dust (Layer 2) ──
+    const dustGeo = new THREE.BufferGeometry();
+    const dustVerts: number[] = [];
+    for (let i = 0; i < 2000; i++) {
+      dustVerts.push(
+        (Math.random() - 0.5) * 5,
+        (Math.random() - 0.5) * 5,
+        (Math.random() - 0.5) * 5
+      );
+    }
+    dustGeo.setAttribute('position', new THREE.Float32BufferAttribute(dustVerts, 3));
+    this.dust = new THREE.Points(
+      dustGeo,
+      new THREE.PointsMaterial({
+        size: 0.001,
+        color: 0x9333ea, // Purple dust
+        transparent: true,
+        opacity: 0.3,
+        sizeAttenuation: true
+      })
+    );
+    this.scene.add(this.dust);
   }
 
   private animate() {
     requestAnimationFrame(this.animate.bind(this));
 
-    this.globe.rotation.y += 0.0018;
-    this.globe.rotation.z += 0.0008;
-    this.stars.rotation.z += 0.00018;
+    // Smooth mouse follow
+    this.mouseX += (this.targetX - this.mouseX) * 0.05;
+    this.mouseY += (this.targetY - this.mouseY) * 0.05;
 
-    this.scene.rotation.y += (this.mouseX * 0.08 - this.scene.rotation.y) * 0.04;
-    this.scene.rotation.x += (this.mouseY * 0.08 - this.scene.rotation.x) * 0.04;
+    this.stars.rotation.y += 0.0005;
+    this.stars.rotation.x += 0.0002;
+    
+    this.dust.rotation.y -= 0.0003;
+    this.dust.rotation.z += 0.0001;
+
+    this.scene.rotation.x = this.mouseY;
+    this.scene.rotation.y = this.mouseX;
 
     this.renderer.render(this.scene, this.camera);
   }

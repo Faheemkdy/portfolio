@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,600;0,800;0,900;1,300&family=Inter:wght@300;400;500&display=swap');
 
-/* ── Variables ── */
+/* ── Space Theme Variables ── */
 :root {
-  --bg:     #0a0a0f;
-  --bg2:    #0f0f18;
-  --cyan:   #5bffc0;
-  --purple: #c47bff;
-  --blue:   #628cf5;
-  --green:  #5bffc0;
-  --orange: #ff8c5b;
-  --fg:     #ffffff;
-  --dim:    rgba(255,255,255,0.52);
-  --border: rgba(255,255,255,0.1);
-  --fh:     'Outfit', sans-serif;
-  --fb:     'Inter', sans-serif;
-  --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+  --bg:         #030014;
+  --bg-stars:   rgba(3, 0, 20, 0.95);
+  --purple:     #7042f88b; /* Transparent Purple Glow */
+  --purple-solid: #a370f7;
+  --cyan:       #22d3ee;
+  --blue:       #2563eb;
+  --fg:         #ffffff;
+  --fg-dim:     #b49bff;
+  --border:     rgba(255, 255, 255, 0.125);
+  --glass:      rgba(11, 7, 30, 0.65);
+  --fh:         'Outfit', sans-serif;
+  --fb:         'Inter', sans-serif;
+  --ease:       cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -138,13 +138,44 @@ img { display: block; max-width: 100%; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ══════════════════════════════════════
-   SECTIONS — common
+   SPACE THEME COMPONENTS
+   Inspired by sanidhyy/space-portfolio
 ══════════════════════════════════════ */
+.video-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.4s var(--ease);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.glass-card:hover {
+  border-color: rgba(112, 66, 248, 0.5);
+  box-shadow: 0 0 40px rgba(112, 66, 248, 0.15);
+  transform: translateY(-5px);
+}
+
+.glow-text {
+  text-shadow: 0 0 15px rgba(112, 66, 248, 0.5);
+}
+
 section {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
-  padding: 9rem 6vw 6rem; overflow: hidden;
+  padding: 6rem 6vw 6rem; overflow: hidden;
 }
 
 .sec-num {
