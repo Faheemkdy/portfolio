@@ -31,6 +31,68 @@ class App {
     this.initCarousels();
     this.initTilt();
     this.initGSAP(); // New Cinematic Animations
+    this.initTechDraggable();
+  }
+
+  private initTechDraggable() {
+    const container = document.querySelector('.global-tech-symbols') as HTMLElement;
+    const symbols = document.querySelectorAll('.global-tech-symbols span') as NodeListOf<HTMLElement>;
+    
+    // Parallax effect for the container based on mouse movement
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      if (container) {
+        const x = (window.innerWidth / 2 - e.clientX) * 0.02;
+        const y = (window.innerHeight / 2 - e.clientY) * 0.02;
+        container.style.transform = `translate(${x}px, ${y}px)`;
+      }
+    });
+
+    symbols.forEach(symbol => {
+      let isDragging = false;
+      let startX = 0, startY = 0, initialLeft = 0, initialTop = 0;
+
+      symbol.style.pointerEvents = 'auto';
+      symbol.style.cursor = 'grab';
+
+      symbol.addEventListener('mousedown', (e: MouseEvent) => {
+        isDragging = true;
+        symbol.style.cursor = 'grabbing';
+        
+        // Pause the CSS animation instead of removing it
+        symbol.style.animationPlayState = 'paused';
+        
+        // Get the current computed position in pixels
+        const style = window.getComputedStyle(symbol);
+        initialLeft = parseFloat(style.left);
+        initialTop = parseFloat(style.top);
+        
+        // Lock to pixels so dragging works cleanly
+        symbol.style.right = 'auto';
+        symbol.style.bottom = 'auto';
+        symbol.style.left = `${initialLeft}px`;
+        symbol.style.top = `${initialTop}px`;
+
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      window.addEventListener('mousemove', (e: MouseEvent) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        symbol.style.left = `${initialLeft + dx}px`;
+        symbol.style.top = `${initialTop + dy}px`;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          symbol.style.cursor = 'grab';
+          // Resume the CSS animation from the new position
+          symbol.style.animationPlayState = 'running';
+        }
+      });
+    });
   }
 
   private initGSAP() {

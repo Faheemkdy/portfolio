@@ -143,7 +143,7 @@ img {
 
 #app {
   position: relative;
-  z-index: 1;
+  /* z-index removed to allow background elements to intercept clicks */
 }
 
 /* ══════════════════════════════════════
@@ -302,6 +302,7 @@ img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
+  z-index: 5;
 }
 
 .glass-card::after {
@@ -654,6 +655,57 @@ h2.sec-h2.reveal {
   100% { opacity: 1; transform: scale(1.05); }
 }
 
+/* Data Flow / Circuit Effect */
+.hero-bg-circuit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg-circuit::before,
+.hero-bg-circuit::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.3;
+}
+
+/* Horizontal data lines */
+.hero-bg-circuit::before {
+  width: 100%;
+  height: 1px;
+  top: 30%;
+  left: -100%;
+  animation: dataFlowX 8s linear infinite;
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+/* Vertical data lines */
+.hero-bg-circuit::after {
+  width: 1px;
+  height: 100%;
+  left: 70%;
+  top: -100%;
+  animation: dataFlowY 12s linear infinite;
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+@keyframes dataFlowX {
+  0% { left: -100%; opacity: 0; }
+  20% { opacity: 0.4; }
+  80% { opacity: 0.4; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes dataFlowY {
+  0% { top: -100%; opacity: 0; }
+  20% { opacity: 0.3; }
+  80% { opacity: 0.3; }
+  100% { top: 100%; opacity: 0; }
+}
+
 /* Blurred animated blobs — deeper blur, positioned on sides */
 .hero-blob {
   position: absolute;
@@ -704,6 +756,39 @@ h2.sec-h2.reveal {
 @keyframes blobDrift3 {
   0%   { transform: translate(0px, 0px) scale(1); }
   100% { transform: translate(30px, -40px) scale(1.15); }
+}
+
+/* Floating Tech Symbols */
+.global-tech-symbols {
+  position: fixed;
+  inset: 0;
+  z-index: 2; /* High enough to catch clicks, low enough to be behind content */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.global-tech-symbols span {
+  position: absolute;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.18);
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+  animation: floatSymbol 20s linear infinite;
+}
+
+.ts-1 { top: 15%; left: 10%; animation-duration: 160s; animation-delay: 0s; }
+.ts-2 { top: 60%; left: 15%; animation-duration: 150s; animation-delay: -30s; font-size: clamp(2rem, 4vw, 3.5rem); }
+.ts-3 { top: 25%; right: 12%; animation-duration: 180s; animation-delay: -60s; }
+.ts-4 { top: 75%; right: 20%; animation-duration: 170s; animation-delay: -20s; font-size: clamp(2.5rem, 5vw, 4rem); color: rgba(255, 255, 255, 0.08); }
+.ts-5 { top: 40%; left: 30%; animation-duration: 200s; animation-delay: -90s; }
+.ts-6 { top: 80%; left: 45%; animation-duration: 190s; animation-delay: -45s; }
+
+@keyframes floatSymbol {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  5% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-90vh) rotate(120deg); opacity: 0; }
 }
 
 /* ══════════════════════════════════════
@@ -900,6 +985,8 @@ h2.sec-h2.reveal {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5vw;
+  position: relative;
+  z-index: 5;
   align-items: center;
   max-width: 1200px;
   width: 100%;
@@ -1436,7 +1523,7 @@ h2.sec-h2.reveal {
    PROJECTS
 ══════════════════════════════════════ */
 .s-projects {
-  background: var(--bg2);
+  /* Removed opaque background to show global space theme */
 }
 
 .proj-block {
@@ -1447,6 +1534,8 @@ h2.sec-h2.reveal {
   max-width: 1200px;
   width: 100%;
   margin-bottom: 8rem;
+  position: relative;
+  z-index: 5;
 }
 
 .proj-block.reverse {
@@ -1609,7 +1698,7 @@ h2.sec-h2.reveal {
    CERTIFICATIONS
 ══════════════════════════════════════ */
 .s-certs {
-  background: var(--bg1);
+  /* Removed opaque background to show global space theme */
 }
 
 /* Adjust split layout for Certifications */
@@ -1640,6 +1729,8 @@ h2.sec-h2.reveal {
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 0;
+  position: relative;
+  z-index: 5;
 }
 
 @media (max-width: 900px) {
@@ -1855,6 +1946,8 @@ h2.sec-h2.reveal {
 .contact-inner {
   max-width: 800px;
   width: 100%;
+  position: relative;
+  z-index: 5;
 }
 
 .contact-inner h2 {
