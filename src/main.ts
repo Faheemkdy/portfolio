@@ -77,19 +77,19 @@ class App {
       const images = container.querySelectorAll('.pc-carousel img');
       const prevBtn = container.querySelector('.carousel-btn.prev');
       const nextBtn = container.querySelector('.carousel-btn.next');
-      
+
       if (!images.length || !prevBtn || !nextBtn) return;
-      
+
       let currentIndex = 0;
       let intervalId: number | null = null;
       let isInteracted = false;
-      
+
       const showImage = (index: number) => {
         images.forEach(img => img.classList.remove('active'));
         images[index].classList.add('active');
         this.playTick(); // subtle click sound
       };
-      
+
       const startAutoPlay = () => {
         if (intervalId) return;
         intervalId = window.setInterval(() => {
@@ -108,7 +108,7 @@ class App {
       };
 
       startAutoPlay();
-      
+
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation(); // prevent triggering image pop
         isInteracted = true;
@@ -116,7 +116,7 @@ class App {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         showImage(currentIndex);
       });
-      
+
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         isInteracted = true;
@@ -133,20 +133,20 @@ class App {
     if (!this.typewriterAudioCtx) return;
     const ctx = this.typewriterAudioCtx;
     if (ctx.state === 'suspended') ctx.resume();
-    
+
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    
+
     osc.type = 'sine';
     osc.frequency.setValueAtTime(150 + Math.random() * 100, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.05);
-    
+
     gain.gain.setValueAtTime(0.05, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
-    
+
     osc.connect(gain);
     gain.connect(ctx.destination);
-    
+
     osc.start();
     osc.stop(ctx.currentTime + 0.05);
   }

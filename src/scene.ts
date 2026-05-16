@@ -11,6 +11,9 @@ export class SceneManager {
   private targetX: number = 0;
   private targetY: number = 0;
 
+  private shootingStar!: THREE.Mesh;
+  private isShooting: boolean = false;
+
   constructor(container: HTMLElement) {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -22,6 +25,7 @@ export class SceneManager {
     container.appendChild(this.renderer.domElement);
 
     this.buildScene();
+    this.initShootingStar();
     this.animate();
 
     window.addEventListener('resize', () => {
@@ -34,6 +38,49 @@ export class SceneManager {
       this.targetX = (e.clientX - window.innerWidth / 2) * 0.0001;
       this.targetY = (e.clientY - window.innerHeight / 2) * 0.0001;
     });
+  }
+
+  private initShootingStar() {
+    const geometry = new THREE.PlaneGeometry(0.1, 0.002);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0,
+      side: THREE.DoubleSide
+    });
+    this.shootingStar = new THREE.Mesh(geometry, material);
+    this.scene.add(this.shootingStar);
+  }
+
+  private triggerShootingStar() {
+    if (this.isShooting) return;
+    this.isShooting = true;
+
+    // Random start position
+    const side = Math.random() > 0.5 ? 1 : -1;
+    this.shootingStar.position.set(side * 2, (Math.random() - 0.5) * 2, -1);
+    this.shootingStar.rotation.z = Math.atan2((Math.random() - 0.5), -side);
+    
+    (this.shootingStar.material as THREE.MeshBasicMaterial).opacity = 1;
+
+    const startTime = Date.now();
+    const duration = 1000; // 1 second
+
+    const move = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = elapsed / duration;
+
+      if (progress < 1) {
+        this.shootingStar.position.x -= side * 0.05;
+        this.shootingStar.position.y += (Math.random() - 0.5) * 0.01;
+        (this.shootingStar.material as THREE.MeshBasicMaterial).opacity = 1 - progress;
+        requestAnimationFrame(move);
+      } else {
+        this.isShooting = false;
+        (this.shootingStar.material as THREE.MeshBasicMaterial).opacity = 0;
+      }
+    };
+    move();
   }
 
   private buildScene() {
@@ -95,6 +142,11 @@ export class SceneManager {
 
   private animate() {
     requestAnimationFrame(this.animate.bind(this));
+
+    // Randomly trigger shooting star
+    if (Math.random() > 0.997) {
+      this.triggerShootingStar();
+    }
 
     // Smooth mouse follow
     this.mouseX += (this.targetX - this.mouseX) * 0.05;

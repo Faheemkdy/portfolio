@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamed Faheem | PHP Developer & Backend Engineer</title>
-  <meta name="description" content="Portfolio of Mohamed Faheem — PHP Developer, Flutter & Laravel Developer, and System Technician from Kerala, India." />
+  <meta name="description"
+    content="Portfolio of Mohamed Faheem — PHP Developer, Flutter & Laravel Developer, and System Technician from Kerala, India." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,600;0,800;0,900;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,600;0,800;0,900;1,300&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <!-- Devicon — Tech Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <!-- AOS — Animate On Scroll -->
@@ -16,22 +20,45 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
   <style>
     /* Custom AOS easing */
-    [data-aos] { --aos-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    [data-aos] {
+      --aos-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
   </style>
 </head>
+
 <body>
 
-<div id="loader">
-  <div class="ld-text">MF</div>
-  <div class="ld-bar"><div class="ld-fill"></div></div>
-  <div class="ld-label">Loading Portfolio</div>
-</div>
+  <div id="loader">
+    <div class="ld-text">MF</div>
+    <div class="ld-bar">
+      <div class="ld-fill"></div>
+    </div>
+    <div class="ld-label">Loading Portfolio</div>
+  </div>
 
-<div id="canvas-container"></div>
+  <div id="canvas-container"></div>
 
-<nav id="main-nav">
-  <a href="#home" class="logo">F<span>.</span></a>
-  <div class="nav-links" id="nav-links">
+  <nav id="main-nav">
+    <a href="#home" class="logo">F<span>.</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="nav-cta">LinkedIn ↗</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
@@ -39,366 +66,421 @@
     <a href="#projects">Projects</a>
     <a href="#certifications">Certifications</a>
     <a href="#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="mob-linkedin">LinkedIn ↗</a>
   </div>
-  <div class="nav-right">
-    <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="nav-cta">LinkedIn ↗</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
 
-<!-- Mobile Nav Overlay -->
-<div class="mobile-nav-overlay" id="mobile-nav-overlay">
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#contact">Contact</a>
-  <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="mob-linkedin">LinkedIn ↗</a>
-</div>
+  <main id="app">
 
-<main id="app">
+    <!-- ══════════════ HERO ══════════════ -->
+    <section id="home" class="s-hero">
+      <video src="https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm" autoplay
+        loop muted playsinline class="video-bg"></video>
 
-  <!-- ══════════════ HERO ══════════════ -->
-  <section id="home" class="s-hero">
-    <video src="https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm" autoplay loop muted playsinline class="video-bg"></video>
-    <div class="hero-inner">
-      <span class="hero-badge">● Available for Work</span>
-      <div class="hero-name">
-        <span class="hn glow-text">Mohamed</span>
-        <span class="hn gradient-text glow-text">Faheem</span>
-      </div>
-      <p class="hero-role">
-        <span id="typed-role"></span> &nbsp;·&nbsp; Backend Engineer
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="cta-fill">Explore Projects ↓</a>
-        <a href="mailto:mohammedfaheemkdy@gmail.com" class="cta-ghost">Contact Me</a>
-      </div>
-    </div>
-    <div class="scroll-hint">
-      <div class="sh-line"></div>
-      <span>scroll</span>
-    </div>
-  </section>
+      <!-- ── Premium Hero Background Layers ── -->
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-bg-grid"></div>
+      <div class="hero-bg-glow"></div>
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
 
-  <!-- ══════════════ ABOUT ══════════════ -->
-  <section id="about" class="s-about">
-    <span class="sec-num">01</span>
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 data-aos="fade-up" data-aos-duration="800">Crafting<br/><em class="gradient-text">Digital Solutions</em></h2>
-        <p class="about-p" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-          I'm a <strong>PHP Developer</strong> currently training at Duplex Solutions Co and a seasoned
-          <strong>System Technician</strong> with 4+ years in hardware, networking, and IT support.
-          My dual expertise bridges the gap between software and hardware — I understand
-          both the stack and the infrastructure it runs on.
+      <div class="hero-inner">
+        <span class="hero-badge">● Available for Work</span>
+        <div class="hero-name">
+          <span class="hn glow-text">Mohamed</span>
+          <span class="hn gradient-text glow-text">Faheem</span>
+        </div>
+        <p class="hero-role">
+          <span id="typed-role"></span> &nbsp;·&nbsp; Backend Engineer
         </p>
-        <div class="about-stats glass-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="astat"><div class="astat-n">8<span>mo</span></div><div class="astat-l">PHP Dev</div></div>
-          <div class="astat"><div class="astat-n">4+<span>yr</span></div><div class="astat-l">IT Support</div></div>
-          <div class="astat"><div class="astat-n">3</div><div class="astat-l">Languages</div></div>
-          <div class="astat"><div class="astat-n">3</div><div class="astat-l">Projects</div></div>
+        <div class="hero-btns">
+          <a href="#projects" class="cta-fill">Explore Projects ↓</a>
+          <a href="mailto:mohammedfaheemkdy@gmail.com" class="cta-ghost">Contact Me</a>
         </div>
       </div>
-      <div class="about-img" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="/assets/php-dev.png" alt="Mohamed Faheem PHP Developer workspace" />
-        <div class="img-fade"></div>
-        <span class="img-label">PHP Developer</span>
+      <div class="scroll-hint">
+        <div class="sh-line"></div>
+        <span>scroll</span>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══════════════ EXPERIENCE ══════════════ -->
-  <section id="experience" class="s-exp">
-    <span class="sec-num">02</span>
-    <h2 class="sec-h2" data-aos="fade-up">Professional <em class="gradient-text">Journey</em></h2>
-    <div class="exp-grid">
-      <div class="exp-img-wrap" data-aos="fade-right" data-aos-duration="1000">
-        <img src="/assets/tech.png" alt="System Technician" />
-        <div class="img-fade-r"></div>
-      </div>
-      <div class="exp-cards">
-        <div class="xcard glass-card active-x" data-aos="fade-up" data-aos-delay="100">
-          <div class="xc-badge">Current</div>
-          <div class="xc-date">June 2025 – Present</div>
-          <div class="xc-title">PHP Developer — Trainee</div>
-          <div class="xc-co">Duplex Solutions Co</div>
-          <p class="xc-desc">Developing enterprise-grade web applications using PHP, Laravel, and MySQL. Successfully customized an existing ERP system by developing new features and optimizing backend logic for enhanced performance and workflow efficiency.</p>
-          <div class="xc-tags"><span><i class="devicon-php-plain"></i> PHP</span><span><i class="devicon-laravel-plain"></i> Laravel</span><span><i class="devicon-mysql-plain"></i> MySQL</span></div>
-        </div>
-        <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="xc-date">2021 – Present</div>
-          <div class="xc-title">System Technician</div>
-          <div class="xc-co">PCFIX</div>
-          <p class="xc-desc">Expert technical lead for hardware architecture, advanced system diagnostics, and large-scale network deployments. Managing end-to-end IT infrastructure for clients.</p>
-          <div class="xc-tags"><span>Hardware</span><span>Networking</span><span>Diagnostics</span></div>
-        </div>
-        <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="xc-date">2021 – 2025</div>
-          <div class="xc-title">System Technician</div>
-          <div class="xc-co">Nano Computers</div>
-          <p class="xc-desc">Managed daily IT operations, hardware troubleshooting, and preventive maintenance. Optimized system performance and reliability across multi-device environments.</p>
-          <div class="xc-tags"><span>IT Support</span><span>Security</span><span>Maintenance</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ EDUCATION ══════════════ -->
-  <section id="education" class="s-edu">
-    <span class="sec-num">03</span>
-    <h2 class="sec-h2" data-aos="fade-up">Academic <em class="gradient-text">Background</em></h2>
-    <div class="exp-grid">
-      <div class="exp-img-wrap" data-aos="fade-right" data-aos-duration="1000">
-        <img src="/assets/education.png" alt="Education background" />
-        <div class="img-fade-r"></div>
-      </div>
-      <div class="exp-cards">
-        <div class="xcard glass-card active-x" data-aos="fade-up" data-aos-delay="100">
-          <div class="xc-badge">Degree</div>
-          <div class="xc-date">2022 – 2025</div>
-          <div class="xc-title">Bsc. Computer Science</div>
-          <div class="xc-co">Calicut University</div>
-          <p class="xc-desc">Studied core computer science concepts including programming, databases, algorithms, networking, and web technologies. Built a strong theoretical foundation to complement hands-on development experience.</p>
-          <div class="xc-tags"><span>Computer Science</span><span>Programming</span><span>Databases</span><span>Networking</span></div>
-        </div>
-        <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="xc-date">2020 – 2022</div>
-          <div class="xc-title">Plus Two — Science</div>
-          <div class="xc-co">GVHSS Kondotty</div>
-          <p class="xc-desc">Completed higher secondary education with a focus on Science stream, building analytical and problem-solving skills that form the foundation of my engineering mindset.</p>
-          <div class="xc-tags"><span>Science</span><span>Mathematics</span><span>Physics</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ SKILLS ══════════════ -->
-  <section id="skills" class="s-skills">
-    <video src="https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/encryption-bg.webm" autoplay loop muted playsinline class="video-bg"></video>
-    <span class="sec-num">04</span>
-    <h2 class="sec-h2 centered glow-text" data-aos="fade-up">Technical <em class="gradient-text">Arsenal</em></h2>
-    <p class="sec-sub centered" data-aos="fade-up" data-aos-delay="100">Tools and technologies I work with.</p>
-    <div class="skill-cards stagger">
-      <div class="sk-card glass-card sk-purple" data-aos="fade-up" data-aos-delay="200">
-        <div class="sk-icon">⟨/⟩</div>
-        <h3>Backend</h3>
-        <ul>
-          <li><i class="devicon-php-plain colored"></i> PHP</li>
-          <li><i class="devicon-laravel-plain colored"></i> Laravel</li>
-          <li><i class="devicon-mysql-plain colored"></i> MySQL</li>
-          <li>REST APIs</li>
-        </ul>
-      </div>
-      <div class="sk-card glass-card sk-cyan" data-aos="fade-up" data-aos-delay="300">
-        <div class="sk-icon">◈</div>
-        <h3>Frontend</h3>
-        <ul>
-          <li><i class="devicon-html5-plain colored"></i> HTML5 / CSS3</li>
-          <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
-          <li><i class="devicon-react-original colored"></i> React</li>
-          <li><i class="devicon-flutter-plain colored"></i> Flutter</li>
-        </ul>
-      </div>
-      <div class="sk-card glass-card sk-blue" data-aos="fade-up" data-aos-delay="400">
-        <div class="sk-icon">⚙</div>
-        <h3>IT &amp; Hardware</h3>
-        <ul>
-          <li>Hardware Repair</li>
-          <li>Network Setup</li>
-          <li>Server Admin</li>
-          <li>Troubleshooting</li>
-        </ul>
-      </div>
-      <div class="sk-card glass-card sk-green" data-aos="fade-up" data-aos-delay="500">
-        <div class="sk-icon">✦</div>
-        <h3>Other</h3>
-        <ul>
-          <li><i class="devicon-c-plain colored"></i> C Language</li>
-          <li><i class="devicon-git-plain colored"></i> Git</li>
-          <li>Problem Solving</li>
-          <li>English / Malayalam / Arabic</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- ══════════════ PROJECTS ══════════════ -->
-  <section id="projects" class="s-projects">
-    <span class="sec-num">05</span>
-    <h2 class="sec-h2 centered" data-aos="fade-up">Featured <em class="gradient-text">Projects</em></h2>
-
-    <div class="proj-list">
-      <!-- Project 0 — ERP Customization -->
-      <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image carousel-container" id="proj-img-erp" data-aos="fade-right" data-aos-delay="100">
-          <div class="pc-carousel">
-            <img src="/assets/erp-1.png" alt="ERP Today Appointments" class="active" />
-            <img src="/assets/erp-2.png" alt="ERP Appointment Report" />
-            <img src="/assets/erp-3.png" alt="ERP Invoice Form" />
-            <img src="/assets/erp-4.png" alt="ERP Database View" />
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section id="about" class="s-about">
+      <span class="sec-num">01</span>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 data-aos="fade-up" data-aos-duration="800">Crafting<br /><em class="gradient-text">Digital Solutions</em>
+          </h2>
+          <p class="about-p" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            I'm a <strong>PHP Developer</strong> currently training at Duplex Solutions Co and a seasoned
+            <strong>System Technician</strong> with 4+ years in hardware, networking, and IT support.
+            My dual expertise bridges the gap between software and hardware — I understand
+            both the stack and the infrastructure it runs on.
+          </p>
+          <div class="about-stats glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="astat">
+              <div class="astat-n">8<span>mo</span></div>
+              <div class="astat-l">PHP Dev</div>
+            </div>
+            <div class="astat">
+              <div class="astat-n">4+<span>yr</span></div>
+              <div class="astat-l">IT Support</div>
+            </div>
+            <div class="astat">
+              <div class="astat-n">3</div>
+              <div class="astat-l">Languages</div>
+            </div>
+            <div class="astat">
+              <div class="astat-n">4</div>
+              <div class="astat-l">Projects</div>
+            </div>
           </div>
-          <button class="carousel-btn prev" aria-label="Previous image">‹</button>
-          <button class="carousel-btn next" aria-label="Next image">›</button>
         </div>
-        <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
-          <div class="pc-num">01</div>
-          <span class="pc-tag">Professional Work — Duplex Solutions</span>
-          <h3>ERP System Customization</h3>
-          <p class="pc-p">A comprehensive customization project on an existing Enterprise Resource Planning (ERP) system. I developed new business modules and optimized complex backend logic using PHP and MySQL to streamline operations and improve data processing speeds.</p>
-          <div class="proj-stack">
-            <span><i class="devicon-php-plain colored"></i> PHP</span>
-            <span><i class="devicon-mysql-plain colored"></i> MySQL</span>
-            <span><i class="devicon-javascript-plain colored"></i> JavaScript</span>
-          </div>
-          <a href="#" class="cta-fill small">Visit ERP ↗</a>
+        <div class="about-img" data-aos="zoom-in" data-aos-duration="1000">
+          <img src="/assets/php-dev.png" alt="Mohamed Faheem PHP Developer workspace" />
+          <div class="img-fade"></div>
+          <span class="img-label">PHP Developer</span>
         </div>
       </div>
+    </section>
 
-      <!-- Project 1 — Lapfix AI -->
-      <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image carousel-container" id="proj-img-1" data-aos="fade-right" data-aos-delay="100">
-          <div class="pc-carousel">
-            <img src="/assets/tech.png" alt="LapFix Home Preview" class="active" />
-            <img src="/assets/lapfix-home.png" alt="LapFix Home" />
-            <img src="/assets/lapfix-booking.png" alt="LapFix Booking" />
-            <img src="/assets/lapfix-login.png" alt="LapFix Login" />
-            <img src="/assets/lapfix-profile.png" alt="LapFix Profile" />
-            <img src="/assets/lapfix-screens.png" alt="LapFix Screens" />
-          </div>
-          <button class="carousel-btn prev" aria-label="Previous image">‹</button>
-          <button class="carousel-btn next" aria-label="Next image">›</button>
+    <!-- ══════════════ EXPERIENCE ══════════════ -->
+    <section id="experience" class="s-exp">
+      <span class="sec-num">02</span>
+      <h2 class="sec-h2" data-aos="fade-up">Professional <em class="gradient-text">Journey</em></h2>
+      <div class="exp-grid">
+        <div class="exp-img-wrap" data-aos="fade-right" data-aos-duration="1000">
+          <img src="/assets/tech.png" alt="System Technician" />
+          <div class="img-fade-r"></div>
         </div>
-        <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
-          <div class="pc-num">02</div>
-          <span class="pc-tag">AI-Powered Marketplace</span>
-          <h3>LapFix AI</h3>
-          <p class="pc-p">An AI-powered laptop diagnostic marketplace connecting users with verified technicians. Features smart hardware scanning, slot-based booking, and automated diagnostic reports.</p>
-          <div class="proj-stack">
-            <span><i class="devicon-flutter-plain colored"></i> Flutter</span>
-            <span><i class="devicon-laravel-plain colored"></i> Laravel</span>
-            <span><i class="devicon-mysql-plain colored"></i> MySQL</span>
+        <div class="exp-cards">
+          <div class="xcard glass-card active-x" data-aos="fade-up" data-aos-delay="100">
+            <div class="xc-badge">Current</div>
+            <div class="xc-date">June 2025 – Present</div>
+            <div class="xc-title">PHP Developer — Trainee</div>
+            <div class="xc-co">Duplex Solutions Co</div>
+            <p class="xc-desc">Developing enterprise-grade web applications using PHP, Laravel, and MySQL. Successfully
+              customized an existing ERP system by developing new features and optimizing backend logic for enhanced
+              performance and workflow efficiency.</p>
+            <div class="xc-tags"><span><i class="devicon-php-plain"></i> PHP</span><span><i
+                  class="devicon-laravel-plain"></i> Laravel</span><span><i class="devicon-mysql-plain"></i>
+                MySQL</span></div>
           </div>
-          <a href="#" class="cta-fill small">View Case Study ↓</a>
+          <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="xc-date">2021 – Present</div>
+            <div class="xc-title">System Technician</div>
+            <div class="xc-co">PCFIX</div>
+            <p class="xc-desc">Expert technical lead for hardware architecture, advanced system diagnostics, and
+              large-scale network deployments. Managing end-to-end IT infrastructure for clients.</p>
+            <div class="xc-tags"><span>Hardware</span><span>Networking</span><span>Diagnostics</span></div>
+          </div>
+          <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="xc-date">2021 – 2025</div>
+            <div class="xc-title">System Technician</div>
+            <div class="xc-co">Nano Computers</div>
+            <p class="xc-desc">Managed daily IT operations, hardware troubleshooting, and preventive maintenance.
+              Optimized system performance and reliability across multi-device environments.</p>
+            <div class="xc-tags"><span>IT Support</span><span>Security</span><span>Maintenance</span></div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Project 2 — MD Logistics -->
-      <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image carousel-container" id="proj-img-2" data-aos="fade-right" data-aos-delay="100">
-          <div class="pc-carousel">
-            <img src="/assets/md-billing.png" alt="MD Logistics Preview" class="active" />
-            <img src="/assets/md-dashboard.png" alt="MD Dashboard" />
-            <img src="/assets/md-daysheet.png" alt="MD Daysheet" />
-            <img src="/assets/logistics.png" alt="Logistics Screen" />
-          </div>
-          <button class="carousel-btn prev" aria-label="Previous image">‹</button>
-          <button class="carousel-btn next" aria-label="Next image">›</button>
+    <!-- ══════════════ EDUCATION ══════════════ -->
+    <section id="education" class="s-edu">
+      <span class="sec-num">03</span>
+      <h2 class="sec-h2" data-aos="fade-up">Academic <em class="gradient-text">Background</em></h2>
+      <div class="exp-grid">
+        <div class="exp-img-wrap" data-aos="fade-right" data-aos-duration="1000">
+          <img src="/assets/education.png" alt="Education background" />
+          <div class="img-fade-r"></div>
         </div>
-        <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
-          <div class="pc-num">03</div>
-          <span class="pc-tag">Logistics ERP</span>
-          <h3>MD Logistics Billing</h3>
-          <p class="pc-p">Full-scale billing and invoice management system with real-time calculations and automated PDF generation. Designed for high-volume logistics operations with multi-user support.</p>
-          <div class="proj-stack">
-            <span><i class="devicon-react-original colored"></i> React</span>
-            <span><i class="devicon-javascript-plain colored"></i> JS</span>
-            <span><i class="devicon-php-plain colored"></i> PHP</span>
+        <div class="exp-cards">
+          <div class="xcard glass-card active-x" data-aos="fade-up" data-aos-delay="100">
+            <div class="xc-badge">Degree</div>
+            <div class="xc-date">2022 – 2025</div>
+            <div class="xc-title">Bsc. Computer Science</div>
+            <div class="xc-co">Calicut University</div>
+            <p class="xc-desc">Studied core computer science concepts including programming, databases, algorithms,
+              networking, and web technologies. Built a strong theoretical foundation to complement hands-on development
+              experience.</p>
+            <div class="xc-tags"><span>Computer
+                Science</span><span>Programming</span><span>Databases</span><span>Networking</span></div>
           </div>
-          <a href="https://mdlogistics-six.vercel.app/login" target="_blank" class="cta-fill small">Launch ERP ↗</a>
+          <div class="xcard glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="xc-date">2020 – 2022</div>
+            <div class="xc-title">Plus Two — Science</div>
+            <div class="xc-co">GVHSS Kondotty</div>
+            <p class="xc-desc">Completed higher secondary education with a focus on Science stream, building analytical
+              and problem-solving skills that form the foundation of my engineering mindset.</p>
+            <div class="xc-tags"><span>Science</span><span>Mathematics</span><span>Physics</span></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══════════════ CERTIFICATIONS ══════════════ -->
-  <section id="certifications" class="s-certs s-projects">
-    <span class="sec-num">06</span>
-    <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">My <em class="gradient-text">Certifications</em></h2>
-    <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">Professional credentials &amp; verified skills.</p>
-
-    <div class="proj-list" style="margin-top: 4rem;">
-      <div class="proj-row" data-aos="fade-up">
-        <div class="pc-image" id="cert-img-1" style="padding: 1rem; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center;">
-          <!-- Using object to embed PDF directly as a visual preview like an image -->
-          <object data="/assets/mohammedfaheemkdy.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" class="pdf-embed" title="Ethical Hacking Certificate">
-            <!-- Fallback image if PDF plugin fails on mobile -->
-            <img src="/assets/ethical-hacking-badge.png" alt="Ethical Hacking Certificate Badge" style="max-width: 80%; opacity: 0.8;" />
-          </object>
+    <!-- ══════════════ SKILLS ══════════════ -->
+    <section id="skills" class="s-skills">
+      <video src="https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/encryption-bg.webm"
+        autoplay loop muted playsinline class="video-bg"></video>
+      <span class="sec-num">04</span>
+      <h2 class="sec-h2 centered glow-text" data-aos="fade-up">Technical <em class="gradient-text">Arsenal</em></h2>
+      <p class="sec-sub centered" data-aos="fade-up" data-aos-delay="100">Tools and technologies I work with.</p>
+      <div class="skill-cards stagger">
+        <div class="sk-card glass-card sk-purple" data-aos="fade-up" data-aos-delay="200">
+          <div class="sk-icon">⟨/⟩</div>
+          <h3>Backend</h3>
+          <ul>
+            <li><i class="devicon-php-plain colored"></i> PHP</li>
+            <li><i class="devicon-laravel-plain colored"></i> Laravel</li>
+            <li><i class="devicon-mysql-plain colored"></i> MySQL</li>
+            <li>REST APIs</li>
+          </ul>
         </div>
-        <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
-          <div class="pc-num">01</div>
-          <span class="pc-tag">Professional Certification</span>
-          <h3>Introduction to Ethical Hacking</h3>
-          <p class="pc-p">Successfully completed foundational training in ethical hacking principles and security concepts. This certification demonstrates my commitment to understanding web security and building robust, protected backend solutions.</p>
-          <p class="cert-meta" style="color:#aaa; font-size:0.9rem; margin-bottom: 2rem;">Offenso Hackers Academy | Issued: 20-08-2023</p>
-          <div class="proj-stack">
-            <span><i class="devicon-php-plain"></i> Secure PHP</span>
-            <span>Vulnerability Scanning</span>
-            <span>Audit & Defense</span>
+        <div class="sk-card glass-card sk-cyan" data-aos="fade-up" data-aos-delay="300">
+          <div class="sk-icon">◈</div>
+          <h3>Frontend</h3>
+          <ul>
+            <li><i class="devicon-html5-plain colored"></i> HTML5 / CSS3</li>
+            <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
+            <li><i class="devicon-react-original colored"></i> React</li>
+            <li><i class="devicon-flutter-plain colored"></i> Flutter</li>
+          </ul>
+        </div>
+        <div class="sk-card glass-card sk-blue" data-aos="fade-up" data-aos-delay="400">
+          <div class="sk-icon">⚙</div>
+          <h3>IT &amp; Hardware</h3>
+          <ul>
+            <li>Hardware Repair</li>
+            <li>Network Setup</li>
+            <li>Server Admin</li>
+            <li>Troubleshooting</li>
+          </ul>
+        </div>
+        <div class="sk-card glass-card sk-green" data-aos="fade-up" data-aos-delay="500">
+          <div class="sk-icon">✦</div>
+          <h3>Other</h3>
+          <ul>
+            <li><i class="devicon-c-plain colored"></i> C Language</li>
+            <li><i class="devicon-git-plain colored"></i> Git</li>
+            <li>Problem Solving</li>
+            <li>English / Malayalam / Arabic</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ══════════════ PROJECTS ══════════════ -->
+    <section id="projects" class="s-projects">
+      <span class="sec-num">05</span>
+      <h2 class="sec-h2 centered" data-aos="fade-up">Featured <em class="gradient-text">Projects</em></h2>
+
+      <div class="proj-list">
+        <!-- Project 0 — ERP Customization -->
+        <div class="proj-row" data-aos="fade-up">
+          <div class="pc-image carousel-container" id="proj-img-erp" data-aos="fade-right" data-aos-delay="100">
+            <div class="pc-carousel">
+              <img src="/assets/erp-1.png" alt="ERP Today Appointments" class="active" />
+              <img src="/assets/erp-2.png" alt="ERP Appointment Report" />
+              <img src="/assets/erp-3.png" alt="ERP Invoice Form" />
+              <img src="/assets/erp-4.png" alt="ERP Database View" />
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" aria-label="Next image">›</button>
           </div>
-          <a href="/assets/mohammedfaheemkdy.pdf" download class="cta-fill small" style="margin-top: 1rem;">Download Certificate ↓</a>
+          <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="pc-num">01</div>
+            <span class="pc-tag">Professional Work — Duplex Solutions</span>
+            <h3>ERP System Customization</h3>
+            <p class="pc-p">A comprehensive customization project on an existing Enterprise Resource Planning (ERP)
+              system. I developed new business modules and optimized complex backend logic using PHP and MySQL to
+              streamline operations and improve data processing speeds.</p>
+            <div class="proj-stack">
+              <span><i class="devicon-php-plain colored"></i> PHP</span>
+              <span><i class="devicon-mysql-plain colored"></i> MySQL</span>
+              <span><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+            </div>
+            <a href="#" class="cta-fill small">Visit ERP ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 1 — Lapfix AI -->
+        <div class="proj-row" data-aos="fade-up">
+          <div class="pc-image carousel-container" id="proj-img-1" data-aos="fade-right" data-aos-delay="100">
+            <div class="pc-carousel">
+              <img src="/assets/tech.png" alt="LapFix Home Preview" class="active" />
+              <img src="/assets/lapfix-home.png" alt="LapFix Home" />
+              <img src="/assets/lapfix-booking.png" alt="LapFix Booking" />
+              <img src="/assets/lapfix-login.png" alt="LapFix Login" />
+              <img src="/assets/lapfix-profile.png" alt="LapFix Profile" />
+              <img src="/assets/lapfix-screens.png" alt="LapFix Screens" />
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" aria-label="Next image">›</button>
+          </div>
+          <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="pc-num">02</div>
+            <span class="pc-tag">AI-Powered Marketplace</span>
+            <h3>LapFix AI</h3>
+            <p class="pc-p">An AI-powered laptop diagnostic marketplace connecting users with verified technicians.
+              Features smart hardware scanning, slot-based booking, and automated diagnostic reports.</p>
+            <div class="proj-stack">
+              <span><i class="devicon-flutter-plain colored"></i> Flutter</span>
+              <span><i class="devicon-laravel-plain colored"></i> Laravel</span>
+              <span><i class="devicon-mysql-plain colored"></i> MySQL</span>
+            </div>
+            <a href="#" class="cta-fill small">View Case Study ↓</a>
+          </div>
+        </div>
+
+        <!-- Project 2 — MD Logistics -->
+        <div class="proj-row" data-aos="fade-up">
+          <div class="pc-image carousel-container" id="proj-img-2" data-aos="fade-right" data-aos-delay="100">
+            <div class="pc-carousel">
+              <img src="/assets/md-billing.png" alt="MD Logistics Preview" class="active" />
+              <img src="/assets/md-dashboard.png" alt="MD Dashboard" />
+              <img src="/assets/md-daysheet.png" alt="MD Daysheet" />
+              <img src="/assets/logistics.png" alt="Logistics Screen" />
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" aria-label="Next image">›</button>
+          </div>
+          <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="pc-num">03</div>
+            <span class="pc-tag">Logistics ERP</span>
+            <h3>MD Logistics Billing</h3>
+            <p class="pc-p">Full-scale billing and invoice management system with real-time calculations and automated
+              PDF generation. Designed for high-volume logistics operations with multi-user support.</p>
+            <div class="proj-stack">
+              <span><i class="devicon-react-original colored"></i> React</span>
+              <span><i class="devicon-javascript-plain colored"></i> JS</span>
+              <span><i class="devicon-php-plain colored"></i> PHP</span>
+            </div>
+            <a href="https://mdlogistics-six.vercel.app/login" target="_blank" class="cta-fill small">Launch ERP ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 3 — PCFIX Service Management -->
+        <div class="proj-row" data-aos="fade-up">
+          <div class="pc-image carousel-container" id="proj-img-pcfix" data-aos="fade-right" data-aos-delay="100">
+            <div class="pc-carousel">
+              <img src="/assets/pcfix-landing.png" alt="PCFIX Landing Page" class="active" />
+              <img src="/assets/pcfix-admin.png" alt="PCFIX Admin Dashboard" />
+              <img src="/assets/pcfix-tracker.png" alt="PCFIX Repair Tracker" />
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" aria-label="Next image">›</button>
+          </div>
+          <div class="pc-content glass-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="pc-num">04</div>
+            <span class="pc-tag">Full-Stack Service SaaS</span>
+            <h3>PCFIX Service Management</h3>
+            <p class="pc-p">A high-performance service management platform for PCFIX. Features an immersive 3D landing page, real-time repair status tracking for customers, and a robust admin ecosystem for managing workflows and business expenses.</p>
+            <div class="proj-stack">
+              <span><i class="devicon-nextjs-plain"></i> Next.js</span>
+              <span><i class="devicon-supabase-plain colored"></i> Supabase</span>
+              <span><i class="devicon-tailwindcss-original colored"></i> Tailwind</span>
+            </div>
+            <a href="https://pc-fix-five.vercel.app/" target="_blank" class="cta-fill small">Launch App ↗</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══════════════ CONTACT ══════════════ -->
-  <section id="contact" class="s-contact">
-    <span class="sec-num">07</span>
-    <div class="contact-inner" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
-      <h2>Let's Build<br/><em class="gradient-text">Something Great.</em></h2>
-      <p class="contact-sub">Open to full-time backend roles and freelance opportunities.</p>
-      <div class="contact-links">
-        <a href="mailto:mohammedfaheemkdy@gmail.com" class="cl">
-          <span class="cl-l">Email</span>
-          <span class="cl-v">mohammedfaheemkdy@gmail.com ↗</span>
-        </a>
-        <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="cl">
-          <span class="cl-l">LinkedIn</span>
-          <span class="cl-v">linkedin.com/in/mohamed-faheem-a32131358 ↗</span>
-        </a>
-        <a href="tel:+919539401067" class="cl">
-          <span class="cl-l">Phone</span>
-          <span class="cl-v">+91 95394 01067</span>
-        </a>
-        <a href="/assets/Mohamed_Faheem_CV.pdf" download class="cl">
-          <span class="cl-l">CV</span>
-          <span class="cl-v">Download Mohamed_Faheem_CV.pdf ↓</span>
-        </a>
+    <!-- ══════════════ CERTIFICATIONS ══════════════ -->
+    <section id="certifications" class="s-certs s-projects">
+      <span class="sec-num">06</span>
+      <h2 class="sec-h2 centered" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">My <em
+          class="gradient-text">Certifications</em></h2>
+      <p class="sec-sub centered" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100"
+        data-aos-easing="ease-out-cubic">Professional credentials &amp; verified skills.</p>
+
+      <div class="proj-list" style="margin-top: 4rem;">
+        <div class="proj-row" data-aos="fade-up">
+          <div class="pc-image" id="cert-img-1"
+            style="padding: 1rem; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center;">
+            <!-- Using object to embed PDF directly as a visual preview like an image -->
+            <object data="/assets/mohammedfaheemkdy.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"
+              class="pdf-embed" title="Ethical Hacking Certificate">
+              <!-- Fallback image if PDF plugin fails on mobile -->
+              <img src="/assets/ethical-hacking-badge.png" alt="Ethical Hacking Certificate Badge"
+                style="max-width: 80%; opacity: 0.8;" />
+            </object>
+          </div>
+          <div class="pc-content" data-aos="fade-left" data-aos-delay="200">
+            <div class="pc-num">01</div>
+            <span class="pc-tag">Professional Certification</span>
+            <h3>Introduction to Ethical Hacking</h3>
+            <p class="pc-p">Successfully completed foundational training in ethical hacking principles and security
+              concepts. This certification demonstrates my commitment to understanding web security and building robust,
+              protected backend solutions.</p>
+            <p class="cert-meta" style="color:#aaa; font-size:0.9rem; margin-bottom: 2rem;">Offenso Hackers Academy |
+              Issued: 20-08-2023</p>
+            <div class="proj-stack">
+              <span><i class="devicon-php-plain"></i> Secure PHP</span>
+              <span>Vulnerability Scanning</span>
+              <span>Audit & Defense</span>
+            </div>
+            <a href="/assets/mohammedfaheemkdy.pdf" download class="cta-fill small" style="margin-top: 1rem;">Download
+              Certificate ↓</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <footer>
-      <span>© 2025 Mohamed Faheem</span>
-      <span>Kondotty, Kerala, India</span>
-    </footer>
-  </section>
+    </section>
 
-</main>
+    <!-- ══════════════ CONTACT ══════════════ -->
+    <section id="contact" class="s-contact">
+      <span class="sec-num">07</span>
+      <div class="contact-inner" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
+        <h2>Let's Build<br /><em class="gradient-text">Something Great.</em></h2>
+        <p class="contact-sub">Open to full-time backend roles and freelance opportunities.</p>
+        <div class="contact-links">
+          <a href="mailto:mohammedfaheemkdy@gmail.com" class="cl">
+            <span class="cl-l">Email</span>
+            <span class="cl-v">mohammedfaheemkdy@gmail.com ↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/mohamed-faheem-a32131358" target="_blank" class="cl">
+            <span class="cl-l">LinkedIn</span>
+            <span class="cl-v">linkedin.com/in/mohamed-faheem-a32131358 ↗</span>
+          </a>
+          <a href="tel:+919539401067" class="cl">
+            <span class="cl-l">Phone</span>
+            <span class="cl-v">+91 95394 01067</span>
+          </a>
+          <a href="/assets/Mohamed_Faheem_CV.pdf" download class="cl">
+            <span class="cl-l">CV</span>
+            <span class="cl-v">Download Mohamed_Faheem_CV.pdf ↓</span>
+          </a>
+        </div>
+      </div>
+      <footer>
+        <span>© 2025 Mohamed Faheem</span>
+        <span>Kondotty, Kerala, India</span>
+      </footer>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    easing: 'ease-out-cubic',
-    once: true,
-    offset: 80,
-    mirror: false
-  });
-  
-  // Refresh AOS after a timeout to ensure everything loads and flexbox settles
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      AOS.refresh();
-    }, 1000);
-  });
-</script>
-<script type="module" src="/src/main.ts"></script>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80,
+      mirror: false
+    });
+
+    // Refresh AOS after a timeout to ensure everything loads and flexbox settles
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 1000);
+    });
+  </script>
+  <script type="module" src="/src/main.ts"></script>
 </body>
+
 </html>
